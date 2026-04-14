@@ -1,5 +1,6 @@
-const CozeSdk = require('../../cozeSDK/index');
+﻿const CozeSdk = require('../../cozeSDK/index');
 const CozeConfig = require('../../cozeSDK/config');
+const { toAssetUrl, resolveAssetUrls } = require('../../utils/asset-config');
 
 Page({
   data: {
@@ -27,41 +28,41 @@ Page({
         id: 1,
         name: '美食',
         styles: [
-          { id: 101, name: '极简留白', imageUrl: '/images/reference-styles/美食/极简留白.png' },
-          { id: 102, name: '美食特写', imageUrl: '/images/reference-styles/美食/美食特写.png' },
-          { id: 103, name: '带手入镜', imageUrl: '/images/reference-styles/美食/带手入镜.png' },
-          { id: 104, name: '服饰平铺', imageUrl: '/images/reference-styles/美食/服饰平铺.png' },
-          { id: 105, name: '45度微距', imageUrl: '/images/reference-styles/美食/45度微距.png' }
+          { id: 101, name: '极简留白', imageUrl: '/images/reference-styles/美食/极简留白.jpg' },
+          { id: 102, name: '美食特写', imageUrl: '/images/reference-styles/美食/美食特写.jpg' },
+          { id: 103, name: '带手入镜', imageUrl: '/images/reference-styles/美食/带手入镜.jpg' },
+          { id: 104, name: '服饰平铺', imageUrl: '/images/reference-styles/美食/服饰平铺.jpg' },
+          { id: 105, name: '45度微距', imageUrl: '/images/reference-styles/美食/45度微距.jpg' }
         ]
       },
       {
         id: 2,
         name: '鞋服',
         styles: [
-          { id: 201, name: '极简平铺', imageUrl: '/images/reference-styles/鞋服/极简平铺.png' },
-          { id: 202, name: '极简折叠', imageUrl: '/images/reference-styles/鞋服/极简折叠.png' },
-          { id: 203, name: '局部细节特写', imageUrl: '/images/reference-styles/鞋服/局部细节特写.png' },
-          { id: 204, name: '氛围感挂拍', imageUrl: '/images/reference-styles/鞋服/氛围感挂拍.png' },
-          { id: 205, name: '场景化摆拍', imageUrl: '/images/reference-styles/鞋服/场景化摆拍.png' },
-          { id: 206, name: '模特上身', imageUrl: '/images/reference-styles/鞋服/模特上身.png' },
-          { id: 207, name: '光影塑形', imageUrl: '/images/reference-styles/鞋服/光影塑形.png' },
-          { id: 208, name: '鞋子俯视', imageUrl: '/images/reference-styles/鞋服/鞋子俯视.png' },
-          { id: 209, name: '鞋子侧视', imageUrl: '/images/reference-styles/鞋服/鞋子侧视.png' },
-          { id: 210, name: '鞋子细节特写', imageUrl: '/images/reference-styles/鞋服/鞋子细节特写.png' },
-          { id: 211, name: '鞋子氛围感', imageUrl: '/images/reference-styles/鞋服/鞋子氛围感.png' },
-          { id: 212, name: '上脚动态特写', imageUrl: '/images/reference-styles/鞋服/上脚动态特写.png' }
+          { id: 201, name: '极简平铺', imageUrl: '/images/reference-styles/鞋服/极简平铺.jpg' },
+          { id: 202, name: '极简折叠', imageUrl: '/images/reference-styles/鞋服/极简折叠.jpg' },
+          { id: 203, name: '局部细节特写', imageUrl: '/images/reference-styles/鞋服/局部细节特写.jpg' },
+          { id: 204, name: '氛围感挂拍', imageUrl: '/images/reference-styles/鞋服/氛围感挂拍.jpg' },
+          { id: 205, name: '场景化摆拍', imageUrl: '/images/reference-styles/鞋服/场景化摆拍.jpg' },
+          { id: 206, name: '模特上身', imageUrl: '/images/reference-styles/鞋服/模特上身.jpg' },
+          { id: 207, name: '光影塑形', imageUrl: '/images/reference-styles/鞋服/光影塑形.jpg' },
+          { id: 208, name: '鞋子俯视', imageUrl: '/images/reference-styles/鞋服/鞋子俯视.jpg' },
+          { id: 209, name: '鞋子侧视', imageUrl: '/images/reference-styles/鞋服/鞋子侧视.jpg' },
+          { id: 210, name: '鞋子细节特写', imageUrl: '/images/reference-styles/鞋服/鞋子细节特写.jpg' },
+          { id: 211, name: '鞋子氛围感', imageUrl: '/images/reference-styles/鞋服/鞋子氛围感.jpg' },
+          { id: 212, name: '上脚动态特写', imageUrl: '/images/reference-styles/鞋服/上脚动态特写.jpg' }
         ]
       },
       {
         id: 3,
         name: '生活用品',
         styles: [
-          { id: 301, name: '极简居中', imageUrl: '/images/reference-styles/生活用品/极简居中.png' },
-          { id: 302, name: '生活场景融入', imageUrl: '/images/reference-styles/生活用品/生活场景融入.png' },
-          { id: 303, name: '几何矩阵排列', imageUrl: '/images/reference-styles/生活用品/几何矩阵排列.png' },
-          { id: 304, name: '高低错落层次摆拍', imageUrl: '/images/reference-styles/生活用品/高低错落层次摆拍.png' },
-          { id: 305, name: '数码产品科技感', imageUrl: '/images/reference-styles/生活用品/数码产品科技感.png' },
-          { id: 306, name: '手持产品特写', imageUrl: '/images/reference-styles/生活用品/手持产品特写.png' }
+          { id: 301, name: '极简居中', imageUrl: '/images/reference-styles/生活用品/极简居中.jpg' },
+          { id: 302, name: '生活场景融入', imageUrl: '/images/reference-styles/生活用品/生活场景融入.jpg' },
+          { id: 303, name: '几何矩阵排列', imageUrl: '/images/reference-styles/生活用品/几何矩阵排列.jpg' },
+          { id: 304, name: '高低错落层次摆拍', imageUrl: '/images/reference-styles/生活用品/高低错落层次摆拍.jpg' },
+          { id: 305, name: '数码产品科技感', imageUrl: '/images/reference-styles/生活用品/数码产品科技感.jpg' },
+          { id: 306, name: '手持产品特写', imageUrl: '/images/reference-styles/生活用品/手持产品特写.jpg' }
         ]
       }
     ],
@@ -121,8 +122,58 @@ Page({
     console.log('极简制作页加载', options);
     // 检查登录状态
     this.checkLogin();
+    this.hydrateStaticAssetUrls();
+    this.refreshStaticAssetTempUrls();
     CozeSdk.initialize();
     this.presetStyleCloudUrlMap = {};
+  },
+
+  hydrateStaticAssetUrls() {
+    const publishChannels = (this.data.publishChannels || []).map((item) => ({
+      ...item,
+      iconPath: toAssetUrl(item.iconPath)
+    }));
+    const referenceStyleCategories = (this.data.referenceStyleCategories || []).map((cat) => ({
+      ...cat,
+      styles: (cat.styles || []).map((style) => ({
+        ...style,
+        imageUrl: toAssetUrl(style.imageUrl)
+      }))
+    }));
+    this.setData({
+      publishChannels,
+      referenceStyleCategories
+    });
+  },
+
+  async refreshStaticAssetTempUrls() {
+    const iconPaths = (this.data.publishChannels || []).map((item) => item.iconPath);
+    const stylePaths = [];
+    (this.data.referenceStyleCategories || []).forEach((cat) => {
+      (cat.styles || []).forEach((style) => {
+        stylePaths.push(style.imageUrl);
+      });
+    });
+    const targetPaths = [...iconPaths, ...stylePaths];
+    if (!targetPaths.length) return;
+
+    const urlMap = await resolveAssetUrls(targetPaths);
+    const publishChannels = (this.data.publishChannels || []).map((item) => ({
+      ...item,
+      iconPath: urlMap[item.iconPath] || toAssetUrl(item.iconPath)
+    }));
+    const referenceStyleCategories = (this.data.referenceStyleCategories || []).map((cat) => ({
+      ...cat,
+      styles: (cat.styles || []).map((style) => ({
+        ...style,
+        imageUrl: urlMap[style.imageUrl] || toAssetUrl(style.imageUrl)
+      }))
+    }));
+
+    this.setData({
+      publishChannels,
+      referenceStyleCategories
+    });
   },
 
   onShow() {

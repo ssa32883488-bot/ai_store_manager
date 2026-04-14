@@ -1,8 +1,24 @@
 {
     "description": "AI小店长 - 基于大模型的双轨制电商营销助理",
     "packOptions": {
-        "ignore": [],
-        "include": []
+        "ignore": [
+    { "type": "folder", "value": "node_modules" },
+    { "type": "folder", "value": "scripts" },
+    { "type": "folder", "value": "html页面文件" },
+    { "type": "file", "value": "README.md" },
+    { "type": "file", "value": "images/README.md" },
+    { "type": "file", "value": "cozeSDK/README.md" },
+    { "type": "file", "value": "_new_folder_list.txt" },
+    { "type": "file", "value": "temp_script.js" },
+    { "type": "file", "value": "app.json.backup" },
+    { "type": "file", "value": "project.private.config.json" },
+    { "type": "folder", "value": "images/minimal-flow/.idea" },
+    { "type": "file", "value": "images/minimal-flow/100.py" },
+    { "type": "folder", "value": "images/reference-styles/_stock" },
+    { "type": "folder", "value": "images/reference-styles/_extras" },
+    { "type": "folder", "value": "新建文件夹" }
+  ],
+  "include": []
     },
     "setting": {
         "bundle": false,
@@ -18,7 +34,7 @@
         "autoAudits": false,
         "newFeature": false,
         "uglifyFileName": false,
-        "uploadWithSourceMap": true,
+        "uploadWithSourceMap": false,
         "useIsolateContext": true,
         "nodeModules": false,
         "enhance": true,

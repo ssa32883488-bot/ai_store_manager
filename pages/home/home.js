@@ -1,5 +1,12 @@
 const REFERENCE_STYLE_POOL = require('../../utils/reference-style-images.js');
 const { normalizeUserInfo, LOCAL_AVATAR } = require('../../utils/user-info.js');
+const { toAssetUrl, resolveAssetUrls } = require('../../utils/asset-config');
+
+const HOME_BANNER_PATHS = [
+  '/images/banners/home-banner-1.jpg',
+  '/images/banners/home-banner-2.jpg',
+  '/images/banners/home-banner-3.jpg'
+];
 
 function shufflePick(list, n) {
   const arr = list.slice();
@@ -16,11 +23,7 @@ Page({
   redirectingToLogin: false,
   data: {
     defaultAvatarUrl: LOCAL_AVATAR,
-    bannerList: [
-      '/images/banners/home-banner-1.png',
-      '/images/banners/home-banner-2.png',
-      '/images/banners/home-banner-3.png'
-    ],
+    bannerList: HOME_BANNER_PATHS.map((p) => toAssetUrl(p)),
     // 用户信息
     userInfo: {
       avatarUrl: '',
@@ -36,8 +39,16 @@ Page({
   onLoad(options) {
     console.log('首页加载', options);
     this.checkLogin();
+    this.refreshHomeAssetUrls();
     this.loadUserInfo();
     this.refreshInspirationCards();
+  },
+
+  async refreshHomeAssetUrls() {
+    const map = await resolveAssetUrls(HOME_BANNER_PATHS);
+    this.setData({
+      bannerList: HOME_BANNER_PATHS.map((path) => map[path] || toAssetUrl(path))
+    });
   },
 
   onShow() {
@@ -73,11 +84,16 @@ Page({
   },
 
   /** 从美食 / 鞋服 / 生活用品参考图中随机 4 张填入灵感橱窗 */
-  refreshInspirationCards() {
+  async refreshInspirationCards() {
     const four = shufflePick(REFERENCE_STYLE_POOL, 4);
+    const urlMap = await resolveAssetUrls(four.map((item) => item.imageUrl));
+    const resolved = four.map((item) => ({
+      ...item,
+      imageUrl: urlMap[item.imageUrl] || toAssetUrl(item.imageUrl)
+    }));
     this.setData({
-      inspirationListLeft: [four[0], four[2]],
-      inspirationListRight: [four[1], four[3]]
+      inspirationListLeft: [resolved[0], resolved[2]],
+      inspirationListRight: [resolved[1], resolved[3]]
     });
   },
 

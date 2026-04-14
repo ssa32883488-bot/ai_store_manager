@@ -1,4 +1,8 @@
 {
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "van-icon": "@vant/weapp/icon/index"
+  },
   "navigationBarTitleText": "充值中心",
   "enablePullDownRefresh": false,
   "backgroundColor": "#f8f9fb"

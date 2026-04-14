@@ -1,5 +1,8 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "van-icon": "@vant/weapp/icon/index"
+  },
   "navigationBarTitleText": "AI小店长",
   "backgroundColor": "#f8f9fb",
   "backgroundTextStyle": "dark"
