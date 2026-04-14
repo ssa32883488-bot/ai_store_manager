@@ -1,0 +1,57 @@
+<view class="recharge-container">
+  <view class="nav-header">
+    <view class="back-btn" bindtap="onBack">
+      <van-icon name="arrow-left" color="#191c1e" size="40rpx" />
+    </view>
+    <text class="nav-title">充值中心</text>
+    <view class="nav-placeholder"></view>
+  </view>
+
+  <scroll-view class="main-content" scroll-y>
+    <view class="rate-card">
+      <text class="rate-title">{{exchangeRateText}}</text>
+      <text class="rate-sub">当前剩余创作点数：{{remainingCredits}}</text>
+    </view>
+
+    <view class="plan-list">
+      <view
+        wx:for="{{plans}}"
+        wx:key="id"
+        class="plan-card {{selectedPlanId == item.id ? 'selected' : ''}}"
+        bindtap="onSelectPlan"
+        data-id="{{item.id}}"
+      >
+        <view class="plan-head">
+          <text class="plan-name">{{item.name}}</text>
+          <text class="plan-price">{{item.price === 0 ? '免费' : ('¥' + item.price)}}</text>
+        </view>
+        <view class="plan-points">{{item.points}} 创作点数</view>
+        <text class="plan-desc">{{item.desc}}</text>
+      </view>
+    </view>
+
+    <van-button
+      type="primary"
+      size="large"
+      round
+      block
+      color="linear-gradient(135deg, #006c49, #10b981)"
+      custom-class="recharge-btn"
+      bind:click="onTapRechargeNow"
+    >立即充值</van-button>
+
+    <view class="bottom-spacer"></view>
+  </scroll-view>
+
+  <!-- 高额套餐引导弹窗（自定义，支持长按钮文案） -->
+  <view wx:if="{{highModalVisible}}" class="high-modal-mask" catchtap="closeHighModal">
+    <view class="high-modal-card" catchtap="noop">
+      <text class="high-modal-title">🎉 检测到您即将开启“爆款测款”模式！</text>
+      <text class="high-modal-content">老板，大额套餐建议搭配“高手技巧”使用。为了让您每一分钱都花在刀刃上，本单额外赠送您 2 次“练手额度”（不计入套餐）。建议先看下方的《30秒出片避雷指南》，学会了再去跑正式大图，出片质量翻倍！</text>
+      <view class="high-modal-actions">
+        <view class="modal-btn btn-primary" bindtap="onHighPlanGuidePay">查看指南并支付</view>
+        <view class="modal-btn btn-plain" bindtap="onHighPlanDirectPay">直接支付</view>
+      </view>
+    </view>
+  </view>
+</view>

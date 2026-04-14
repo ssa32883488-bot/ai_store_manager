@@ -1,0 +1,146 @@
+/* 登录页样式 - Vant 版本 */
+page {
+    background: #F7F8FA;
+  }
+  
+  .login-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 48rpx 64rpx;
+    box-sizing: border-box;
+  }
+  
+  .top-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-top: 80rpx;
+  }
+  
+  .illustration-box {
+    width: 96%;
+    height: 620rpx;
+    border-radius: 48rpx;
+    overflow: hidden;
+    box-shadow: 0 16rpx 48rpx rgba(16, 185, 129, 0.15);
+    margin-bottom: 64rpx;
+  background: #fff;
+  }
+  
+  .illustration-box image,
+  .login-hero-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  
+  .main-title {
+    font-size: 48rpx;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 20rpx;
+    line-height: 1.3;
+  }
+  
+  .sub-title {
+    font-size: 30rpx;
+    color: #666;
+    text-align: center;
+    line-height: 1.5;
+  }
+  
+  .bottom-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    padding-bottom: env(safe-area-inset-bottom);
+    flex: 1;
+    gap: 32rpx;
+  }
+
+  .gift-tag {
+    margin: 0;
+  }
+  
+  .gift-tag .van-tag {
+    padding: 16rpx 32rpx !important;
+    font-size: 26rpx !important;
+    font-weight: 500 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8rpx !important;
+  }
+  
+  .gift-icon {
+    font-size: 28rpx !important;
+  }
+  
+  van-button.login-btn {
+    width: 96% !important;
+    height: 96rpx !important;
+    font-size: 34rpx !important;
+    font-weight: 700 !important;
+    margin: 0 !important;
+    box-shadow: 0 12rpx 32rpx rgba(16, 185, 129, 0.35) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 16rpx !important;
+  }
+  
+  .login-btn .van-button__text {
+    display: flex !important;
+    align-items: center !important;
+    gap: 16rpx !important;
+  }
+  
+  .btn-icon {
+    font-size: 40rpx !important;
+  }
+  
+  .btn-text {
+    white-space: nowrap;
+  }
+  
+  .agreement-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+    padding-bottom: 24rpx;
+  }
+  
+  .agreement-row .van-checkbox {
+    align-items: center;
+  }
+  
+  .agreement-row .van-checkbox__label {
+    margin-left: 16rpx;
+    line-height: 1.4;
+  }
+  
+  .agreement-text {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6rpx;
+  }
+  
+  .text-gray {
+    font-size: 24rpx;
+    color: #888;
+    line-height: 1.4;
+  }
+  
+  .link {
+    font-size: 24rpx;
+    color: #10B981;
+    font-weight: 600;
+    line-height: 1.4;
+  }

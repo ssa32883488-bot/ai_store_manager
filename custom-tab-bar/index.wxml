@@ -1,0 +1,11 @@
+<!-- 自定义 TabBar -->
+<view class="custom-tab-bar">
+  <view class="tab-bar-item {{active === 0 ? 'active' : ''}}" bindtap="switchTab" data-index="0" data-path="pages/home/home">
+    <van-icon name="home-o" size="48rpx" color="{{active === 0 ? '#10b981' : '#6c7a71'}}" />
+    <text class="tab-bar-text" style="color: {{active === 0 ? '#10b981' : '#6c7a71'}}">首页</text>
+  </view>
+  <view class="tab-bar-item {{active === 1 ? 'active' : ''}}" bindtap="switchTab" data-index="1" data-path="pages/profile/profile">
+    <van-icon name="user-o" size="48rpx" color="{{active === 1 ? '#10b981' : '#6c7a71'}}" />
+    <text class="tab-bar-text" style="color: {{active === 1 ? '#10b981' : '#6c7a71'}}">我的</text>
+  </view>
+</view>

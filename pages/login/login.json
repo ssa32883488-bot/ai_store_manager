@@ -1,0 +1,11 @@
+{
+    "usingComponents": {
+      "van-button": "@vant/weapp/button/index",
+      "van-checkbox": "@vant/weapp/checkbox/index",
+      "van-icon": "@vant/weapp/icon/index",
+      "van-tag": "@vant/weapp/tag/index"
+    },
+    "navigationBarTitleText": "AI小店长",
+    "navigationBarBackgroundColor": "#F7F8FA",
+    "navigationBarTextStyle": "black"
+  }

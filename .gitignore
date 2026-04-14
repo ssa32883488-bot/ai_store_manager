@@ -1,0 +1,27 @@
+﻿# dependencies
+node_modules/
+miniprogram_npm/
+
+# cursor / ide
+.cursor/
+.vscode/
+.idea/
+
+# logs / temp
+*.log
+*.tmp
+temp_*.js
+_new_folder_list.txt
+
+# python cache
+__pycache__/
+*.pyc
+
+# local secrets
+cozeSDK/private_key.pem
+.env
+.env.*
+
+# os
+.DS_Store
+Thumbs.db

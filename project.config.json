@@ -1,0 +1,77 @@
+{
+    "description": "AI小店长 - 基于大模型的双轨制电商营销助理",
+    "packOptions": {
+        "ignore": [],
+        "include": []
+    },
+    "setting": {
+        "bundle": false,
+        "userConfirmedBundleSwitch": false,
+        "urlCheck": false,
+        "scopeDataCheck": false,
+        "coverView": true,
+        "es6": true,
+        "postcss": true,
+        "compileHotReLoad": false,
+        "preloadBackgroundData": false,
+        "minified": true,
+        "autoAudits": false,
+        "newFeature": false,
+        "uglifyFileName": false,
+        "uploadWithSourceMap": true,
+        "useIsolateContext": true,
+        "nodeModules": false,
+        "enhance": true,
+        "useCompilerModule": true,
+        "userConfirmedUseCompilerModuleSwitch": false,
+        "showShadowRootInWxmlPanel": true,
+        "babelSetting": {
+            "ignore": [],
+            "disable": false,
+            "outputPath": "",
+            "disablePlugins": []
+        },
+        "condition": {},
+        "compileWorklet": false,
+        "packNpmManually": false,
+        "packNpmRelationList": [],
+        "minifyWXSS": true,
+        "minifyWXML": true,
+        "localPlugins": false,
+        "disableUseStrict": false,
+        "useCompilerPlugins": false,
+        "swc": false,
+        "disableSWC": true
+    },
+    "compileType": "miniprogram",
+    "libVersion": "2.19.4",
+    "appid": "wxe6ad7834bca9ed8f",
+    "projectname": "AI%E5%B0%8F%E5%BA%97%E9%95%BF",
+    "cloudfunctionRoot": "cozeSDK/cloudFunctions",
+    "cloudfunctionTemplateRoot": "",
+    "cloudbaseRoot": "",
+    "watchSetting": {
+        "ignore": []
+    },
+    "simulatorType": "wechat",
+    "simulatorPluginLibVersion": {},
+    "condition": {
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "首页",
+                    "pathName": "pages/home/home",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "登录页",
+                    "pathName": "pages/login/login",
+                    "query": "",
+                    "scene": null
+                }
+            ]
+        }
+    },
+    "editorSetting": {}
+}

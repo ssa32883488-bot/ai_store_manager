@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>AI小店长 - 登录</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700;900&amp;family=Plus_Jakarta_Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#006c49",
+                        "surface-container-low": "#f2f4f6",
+                        "on-background": "#191c1e",
+                        "on-primary-container": "#00422b",
+                        "surface-container-high": "#e7e8ea",
+                        "on-surface": "#191c1e",
+                        "on-secondary": "#ffffff",
+                        "surface-bright": "#f8f9fb",
+                        "on-surface-variant": "#3c4a42",
+                        "primary": "#006c49",
+                        "primary-fixed": "#6ffbbe",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#10b981",
+                        "secondary": "#376850",
+                        "outline-variant": "#bbcabf",
+                        "surface": "#f8f9fb",
+                        "outline": "#6c7a71",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Lexend"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                },
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .signature-gradient {
+            background: linear-gradient(135deg, #006c49 0%, #10b981 100%);
+        }
+        .tonal-transition {
+            background: linear-gradient(to bottom, #ffffff 0%, #f7f8fa 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container">
+<div class="min-h-screen flex flex-col justify-between tonal-transition">
+<!-- Top Navigation (Shell suppressed for Transactional Login) -->
+<header class="pt-16 px-6">
+<!-- Blank space for safe area and visual breathing room -->
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col items-center px-8 text-center">
+<!-- Brand Visual: Healing Style Illustration -->
+<div class="w-3/5 aspect-square mb-10 overflow-hidden rounded-lg shadow-sm">
+<img alt="Warm shop illustration" class="w-full h-full object-cover" data-alt="Soft watercolor illustration of a cozy neighborhood shop front with warm golden lighting, friendly character, and vibrant green plants" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBO6mOaylG4t7Pj5SbHrCO4LWRD8FxxPqQa0RzYvLDzo1HctjyWJejjN-LjPBe6iU2yaZ5CqwoGMWl1OO1lUqvMjjgCExk8mvcs66dcWyv7C6w1gAASJ23YH6Av-hhHQ6RQUJDrOMqN99gAFuOHTUEPtTYD8rKvG_3VVM1up-98KNfme4PyYbvVupJxMt6KcucINWGUFCDO9O4ZApRBJLBquBo7_BSB1LVpXK31s3fNbNadA_7-5C72TuLgYm-GELWenJfv_alLaQ"/>
+</div>
+<!-- Value Propositions -->
+<div class="space-y-4 mb-14">
+<h1 class="font-headline font-bold text-3xl md:text-4xl text-on-surface tracking-tight leading-tight">
+                    一键生成爆款图文
+                </h1>
+<p class="text-lg text-outline leading-relaxed px-4">
+                    让街坊邻居眼前一亮，老店轻松焕新机
+                </p>
+</div>
+<!-- Core Actions -->
+<div class="w-full max-w-md space-y-6">
+<!-- Primary Action: WeChat Login -->
+<button class="signature-gradient w-full h-16 rounded-DEFAULT flex items-center justify-center gap-3 shadow-lg active:scale-95 transition-transform duration-200">
+<img alt="WeChat" class="w-7 h-7 filter brightness-0 invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjhnNjzy2lpdDpel0JytVkxUFtvOV5PU1AusbQcOwyzmR_2x2y8VmkWwvpxPNESLPsrjd-HsGi70YjR5lyyWNNmjX2k9ETS-g3sKbbNTLXMWD9PtxQQMMSX-uwuOLvxrzAho27o2vGIev90_8IyFUMZi_WIRVpsx6Eug69YGPM6066_iGfw0sdHVmB6CkU54ZXRLEwPWvGbb2YDxbD7W5-RNjtcV317gbUEaDbJyFpw4o4-Rr0i7gyu6p3pUhgZZsDjZ8CAHHaYg"/>
+<span class="text-white font-bold text-xl tracking-wide">微信一键授权登录</span>
+</button>
+<!-- Trial Badge/Prompt -->
+<div class="flex items-center justify-center gap-2 py-2">
+<span class="text-xl">👑</span>
+<p class="text-on-tertiary-container font-semibold text-sm">
+                        首次登录即赠免费制作额度
+                    </p>
+</div>
+</div>
+</main>
+<!-- Compliance & Legal -->
+<footer class="pb-12 px-8">
+<div class="flex items-start justify-center gap-3 max-w-sm mx-auto">
+<div class="relative flex items-center pt-1">
+<input class="w-6 h-6 rounded border-2 border-outline text-primary focus:ring-primary focus:ring-offset-2 transition-all cursor-pointer" id="agreement" type="checkbox"/>
+</div>
+<label class="text-sm text-outline leading-snug cursor-pointer select-none" for="agreement">
+                    我已阅读并同意
+                    <a class="text-primary-container font-bold hover:underline decoration-2 underline-offset-4 transition-all" href="#">《用户服务协议》</a>
+                    与
+                    <a class="text-primary-container font-bold hover:underline decoration-2 underline-offset-4 transition-all" href="#">《隐私政策》</a>
+</label>
+</div>
+</footer>
+</div>
+<!-- Background Layering for Depth -->
+<div class="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
+<div class="absolute top-[-10%] right-[-10%] w-72 h-72 rounded-full bg-primary-container opacity-5 blur-[120px]"></div>
+<div class="absolute bottom-[5%] left-[-10%] w-96 h-96 rounded-full bg-primary opacity-5 blur-[120px]"></div>
+</div>
+</body></html>

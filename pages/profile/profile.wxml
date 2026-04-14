@@ -1,0 +1,101 @@
+<!-- 个人主页 -->
+<view class="profile-container">
+  <!-- 顶部导航栏 -->
+  <view class="nav-header">
+    <view class="nav-left">
+      <van-icon name="user-circle-o" color="#191c1e" size="40rpx" />
+      <text class="nav-title">个人中心</text>
+    </view>
+    <view class="settings-btn" bindtap="onTapSettings">
+      <van-icon name="setting-o" color="#6c7a71" size="40rpx" />
+    </view>
+  </view>
+
+  <!-- 主内容区 -->
+  <scroll-view class="main-content" scroll-y>
+    <!-- 用户信息卡片 -->
+    <view class="user-card">
+      <view class="user-info">
+        <view class="avatar-wrapper">
+          <image class="user-avatar" src="{{userInfo.avatarUrl || defaultAvatarUrl}}" mode="aspectFill"/>
+          <view class="vip-badge">
+            <van-icon name="success" color="#ffffff" size="20rpx" />
+          </view>
+        </view>
+        <view class="user-details">
+          <view class="user-name-row">
+            <text class="user-name">{{userInfo.nickname || '小店长老板娘'}}</text>
+            <view class="vip-tag">VIP会员</view>
+          </view>
+          <view class="credit-box">
+            <text class="credit-label">剩余生成次数：{{remainingCredits}}次</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 快捷入口 -->
+    <view class="quick-access">
+      <view class="access-card" bindtap="onTapMyWorks">
+        <view class="access-icon-wrapper orange">
+          <van-icon name="photograph" color="#006c49" size="48rpx" />
+        </view>
+        <text class="access-text">我的作品</text>
+      </view>
+      <view class="access-card" bindtap="onTapMyDrafts">
+        <view class="access-icon-wrapper green">
+          <van-icon name="edit" color="#10b981" size="48rpx" />
+        </view>
+        <text class="access-text">我的草稿</text>
+      </view>
+    </view>
+
+    <!-- 设置列表 -->
+    <view class="settings-list">
+      <view class="settings-item" bindtap="onTapRecharge">
+        <view class="item-left">
+          <view class="item-icon-wrapper orange-light">
+            <van-icon name="bill-o" color="#ed6a0c" size="44rpx" />
+          </view>
+          <text class="item-title">充值中心</text>
+        </view>
+        <van-icon name="arrow" color="#c8c9cc" size="32rpx" />
+      </view>
+
+      <view class="settings-item" bindtap="onTapHelp">
+        <view class="item-left">
+          <view class="item-icon-wrapper blue-light">
+            <van-icon name="records" color="#1989fa" size="44rpx" />
+          </view>
+          <text class="item-title">帮助与教程</text>
+        </view>
+        <van-icon name="arrow" color="#c8c9cc" size="32rpx" />
+      </view>
+
+      <view class="settings-item" bindtap="onTapContact">
+        <view class="item-left">
+          <view class="item-icon-wrapper green-light">
+            <van-icon name="service-o" color="#006c49" size="44rpx" />
+          </view>
+          <text class="item-title">联系客服</text>
+        </view>
+        <van-icon name="arrow" color="#c8c9cc" size="32rpx" />
+      </view>
+
+      <view class="settings-item" bindtap="onTapAbout">
+        <view class="item-left">
+          <view class="item-icon-wrapper gray-light">
+            <van-icon name="info-o" color="#6c7a71" size="44rpx" />
+          </view>
+          <text class="item-title">关于我们</text>
+        </view>
+        <van-icon name="arrow" color="#c8c9cc" size="32rpx" />
+      </view>
+    </view>
+
+    <!-- 切换账号 -->
+    <view class="switch-account" bindtap="onSwitchAccount">
+      <text class="switch-text">切换账号</text>
+    </view>
+  </scroll-view>
+</view>

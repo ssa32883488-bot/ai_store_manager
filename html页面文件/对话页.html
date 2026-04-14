@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI小店长 - 极简制作</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700;900&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#ffffff",
+                    "inverse-on-surface": "#f0f1f3",
+                    "outline": "#6c7a71",
+                    "surface-tint": "#006c49",
+                    "primary-container": "#10b981",
+                    "primary": "#006c49",
+                    "surface-variant": "#e1e2e4",
+                    "on-tertiary-fixed": "#410005",
+                    "primary-fixed": "#6ffbbe",
+                    "secondary": "#376850",
+                    "surface-bright": "#f8f9fb",
+                    "on-surface": "#191c1e",
+                    "on-secondary-fixed": "#002113",
+                    "surface-container-highest": "#e1e2e4",
+                    "secondary-container": "#b7ebce",
+                    "on-tertiary-container": "#711419",
+                    "on-primary-fixed": "#002113",
+                    "on-surface-variant": "#3c4a42",
+                    "tertiary-container": "#fc7c78",
+                    "on-tertiary-fixed-variant": "#842225",
+                    "inverse-surface": "#2e3132",
+                    "on-primary-container": "#00422b",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed-dim": "#9ed2b5",
+                    "on-secondary-container": "#3c6c54",
+                    "tertiary-fixed": "#ffdad7",
+                    "tertiary": "#a43a3a",
+                    "on-primary-fixed-variant": "#005236",
+                    "on-tertiary": "#ffffff",
+                    "surface": "#f8f9fb",
+                    "background": "#f8f9fb",
+                    "on-secondary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "inverse-primary": "#4edea3",
+                    "error-container": "#ffdad6",
+                    "surface-dim": "#d9dadc",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-high": "#e7e8ea",
+                    "surface-container": "#edeef0",
+                    "on-background": "#191c1e",
+                    "primary-fixed-dim": "#4edea3",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed-dim": "#ffb3af",
+                    "surface-container-low": "#f2f4f6",
+                    "secondary-fixed": "#baeed1",
+                    "outline-variant": "#bbcabf",
+                    "on-secondary-fixed-variant": "#1e4f3a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Lexend"],
+                    "body": ["Plus Jakarta Sans"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .step-transition { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface min-h-screen pb-40">
+<!-- TopAppBar Content -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl shadow-sm h-20 px-6 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<button class="w-12 h-12 flex items-center justify-center rounded-full hover:bg-surface-container-low active:scale-95 transition-all text-on-surface">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline font-bold text-2xl tracking-tight text-on-surface">极简制作</h1>
+</div>
+<div class="text-[#10B981] font-headline font-black text-lg">
+            Step 1 of 4
+        </div>
+<!-- Progress Bar Decoration -->
+<div class="bg-surface-container-low h-1.5 w-full absolute bottom-0 left-0">
+<div class="bg-primary-container h-full transition-all duration-500" style="width: 25%"></div>
+</div>
+</header>
+<main class="pt-28 px-6 max-w-xl mx-auto space-y-8">
+<!-- Step 1 Container -->
+<section class="step-transition" id="step-1">
+<div class="space-y-2 mb-8">
+<h2 class="font-headline text-3xl font-bold leading-tight">第一步：今天想宣传什么？</h2>
+<p class="text-on-surface-variant text-lg">AI 小店长帮你把想法变成惊艳的照片</p>
+</div>
+<div class="space-y-6">
+<!-- Large Input Field -->
+<div class="space-y-3">
+<label class="block font-headline text-xl font-bold px-1">您的产品或服务</label>
+<div class="relative group">
+<input class="w-full bg-surface-container-low border-2 border-transparent focus:border-primary focus:ring-0 rounded-lg px-6 py-5 text-xl placeholder:text-on-surface-variant/50 transition-all outline-none" placeholder="如：手工草莓慕斯" type="text"/>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-primary-container text-white rounded-full flex items-center justify-center active:scale-90 transition-transform shadow-md">
+<span class="material-symbols-outlined" data-icon="mic" style="font-variation-settings: 'FILL' 1;">mic</span>
+</button>
+</div>
+</div>
+<!-- Upload Section -->
+<div class="space-y-3">
+<h3 class="font-headline text-xl font-bold px-1">上传实拍照片</h3>
+<div class="w-full h-48 border-4 border-dashed border-outline-variant rounded-lg bg-surface-container-lowest flex flex-col items-center justify-center gap-3 hover:bg-primary-fixed/10 transition-colors cursor-pointer group">
+<div class="w-16 h-16 rounded-full bg-surface-container-low group-hover:bg-primary-container/20 flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary" data-icon="photo_camera">photo_camera</span>
+</div>
+<span class="text-lg font-semibold text-on-surface-variant group-hover:text-primary">点击拍摄 / 从相册选取</span>
+</div>
+</div>
+<!-- Helpful Tip Card -->
+<div class="bg-surface-container-low rounded-lg p-6 flex gap-4 items-start border-l-4 border-primary">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="lightbulb">lightbulb</span>
+<p class="text-on-surface-variant leading-relaxed">
+                        小技巧：在明亮的光线下拍摄，画面感会更强哦！
+                    </p>
+</div>
+</div>
+</section>
+<!-- Hidden Step 2 Mock (For visibility in generated design) -->
+<section class="hidden step-transition py-4" id="step-2">
+<h2 class="font-headline text-3xl font-bold leading-tight mb-8">第二步：想要哪种画面结构？</h2>
+<div class="grid grid-cols-2 gap-4">
+<!-- Card Selected -->
+<div class="relative bg-surface-container-lowest rounded-lg overflow-hidden border-4 border-primary-container shadow-lg group cursor-pointer active:scale-95 transition-all">
+<img class="w-full h-40 object-cover" data-alt="clean minimal food photography of a fresh salad bowl with lots of negative space and soft morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFenxrjFsdVYoGyR7iIEnzh5cguDHzuUwDunF5kLxlPemAO2Tuw49lMTbnuJ3e70jN6MP-FFWKs7e2_Ywnrjm41xrKhammNHSrwiokRbRJBmZW-FB-fXtk5rtMHe-IhIBrL_Bc79wq9LT-wxYDb9oupfN6eUEXMSFL1GWCXjFoGf7RLI-2Fly2DAeD02t5EUPF_w-tGm_MuNQlZbCz2rrOpyHpwAXG4H6bc4FeMlURZVcgbJw7bJ7qb7WNXgLmWii9W9M5cQUfBQ"/>
+<div class="p-4 bg-white">
+<p class="font-bold text-center">极简留白</p>
+</div>
+<div class="absolute top-2 right-2 bg-primary-container text-white rounded-full p-1">
+<span class="material-symbols-outlined text-sm" data-icon="check">check</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-lg overflow-hidden border-4 border-transparent shadow-sm hover:shadow-md transition-all cursor-pointer active:scale-95">
+<img class="w-full h-40 object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="vibrant and full food photography layout with various dishes and textures filling the frame" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9jbs1SCEGssfRFWzrTZzyRlLdKKiCNZWFyddfIUQB_QdhraVhc9uTs50WYYkpUAVt9prvub5-kx-ZmwdI4WenJJAwGa-8DiQvNKSjjiIRduTPJ0OuvKOHOk9qKJTXyvu-xNS8RxRf5gviBf-7AFIN1XY8y6rD-IRCNgr7DYohb9CYk1r9oyRwfaM5fUTgB26yvDYji4TDQ3zZaVudide9eRJ024nlpQD5ajzWGkpf-WLYtYG7-TyKdouHtjUtCbe_z8a-YzLbBw"/>
+<div class="p-4 bg-white">
+<p class="font-bold text-center">带手入镜</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-lg overflow-hidden border-4 border-transparent shadow-sm hover:shadow-md transition-all cursor-pointer active:scale-95">
+<img class="w-full h-40 object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="instagram style 9-grid collage of different healthy meal prep containers on a white table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBu30QcsrOU9_VY1s8fL2M_thmdR84N7irrvE19mLRNiMpHmCT1yh62A3ZCVy2rlYocPGkG7cW0tt9WWqALUTKpEOtUkNmiP63PAP4x3k1njz4jZlGgKcI-aD_S0UMwK5S0t_MOvQuviM4Dul-CEF9JVdoET2oob1as7R7_BtSMglAYIQYSWnrN3apVgR3WRstK-lMMBvk0cJPDCMOrgyLqS20hVNsUJbowVA35Ve0F7OkiNc3huv4WGtm_XdZCYgyRaiqs6_6Low"/>
+<div class="p-4 bg-white">
+<p class="font-bold text-center">俯视平铺</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-lg overflow-hidden border-4 border-transparent shadow-sm hover:shadow-md transition-all cursor-pointer active:scale-95">
+<img class="w-full h-40 object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="extreme close-up macro shot of sizzling meat on a grill with dramatic lighting and steam" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdZoTVdJZ74iJhRfZMOgM92LEeh1RQwTuOVhVE-QhqFaDTcbU8DQDXn45kZKI9uGCnvooYoLH6M-e1onCqXT6ZeospYjzqk5-aV87WtOugAdeoj7Yqx5gQqG8SRvS5laGNgsJUe3cLfLkkz_vuDOUfwPOHJfHQ5zDvZnY55z3MQbRoQQD-mnaMQnfYzaVqh9Mnp6gVUCoDfhHCYbcNNxgVfhAYg54VT-QimLV1AYp2t8oCvp_UoNBi6ReeSInmyt4QeOR1XnBo2Q"/>
+<div class="p-4 bg-white">
+<p class="font-bold text-center">特写放大</p>
+</div>
+</div>
+</div>
+<div class="relative my-10 flex items-center py-4">
+<div class="flex-grow border-t-2 border-surface-container-high"></div>
+<span class="flex-shrink mx-4 text-on-surface-variant font-bold">或者</span>
+<div class="flex-grow border-t-2 border-surface-container-high"></div>
+</div>
+<button class="w-full bg-surface-container-high text-on-surface font-bold py-6 rounded-lg flex items-center justify-center gap-3 hover:bg-surface-container-highest transition-colors active:scale-[0.98]">
+<span class="material-symbols-outlined" data-icon="upload">upload</span>
+                手动上传自己的参考图
+            </button>
+</section>
+<!-- Hidden Step 3 Mock -->
+<section class="hidden step-transition py-4" id="step-3">
+<h2 class="font-headline text-3xl font-bold leading-tight mb-8">第三步：为图片注入灵魂氛围</h2>
+<div class="grid grid-cols-2 gap-4">
+<button class="p-6 rounded-lg bg-surface-container-lowest border-2 border-primary text-primary flex flex-col items-center gap-3 shadow-md">
+<span class="material-symbols-outlined text-4xl" data-icon="filter_vintage">filter_vintage</span>
+<span class="text-xl font-bold">日系清新</span>
+</button>
+<button class="p-6 rounded-lg bg-surface-container-lowest border-2 border-transparent text-on-surface flex flex-col items-center gap-3 hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-4xl" data-icon="sunny">sunny</span>
+<span class="text-xl font-bold">温馨暖阳</span>
+</button>
+<button class="p-6 rounded-lg bg-surface-container-lowest border-2 border-transparent text-on-surface flex flex-col items-center gap-3 hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-4xl" data-icon="restaurant">restaurant</span>
+<span class="text-xl font-bold">深夜食堂</span>
+</button>
+<button class="p-6 rounded-lg bg-surface-container-lowest border-2 border-transparent text-on-surface flex flex-col items-center gap-3 hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-4xl" data-icon="camera_roll">camera_roll</span>
+<span class="text-xl font-bold">复古胶片</span>
+</button>
+</div>
+</section>
+<!-- Hidden Step 4 Mock -->
+<section class="hidden step-transition py-4 space-y-10" id="step-4">
+<h2 class="font-headline text-3xl font-bold leading-tight mb-8">最后一步：发布在哪里，想怎么说？</h2>
+<div class="space-y-4">
+<h3 class="font-headline text-xl font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="share">share</span>
+                    发布平台
+                </h3>
+<div class="flex flex-wrap gap-3">
+<button class="px-6 py-3 rounded-full bg-primary-container text-white font-bold text-lg shadow-sm">微信朋友圈</button>
+<button class="px-6 py-3 rounded-full bg-surface-container-high text-on-surface font-bold text-lg">小红书</button>
+<button class="px-6 py-3 rounded-full bg-surface-container-high text-on-surface font-bold text-lg">抖音图文</button>
+</div>
+</div>
+<div class="space-y-4">
+<h3 class="font-headline text-xl font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="edit_note">edit_note</span>
+                    文案语气
+                </h3>
+<div class="flex flex-wrap gap-3">
+<button class="px-6 py-3 rounded-full bg-surface-container-high text-on-surface font-bold text-lg">商场大促</button>
+<button class="px-6 py-3 rounded-full bg-primary-container text-white font-bold text-lg shadow-sm">新品上市</button>
+<button class="px-6 py-3 rounded-full bg-surface-container-high text-on-surface font-bold text-lg">走心打卡</button>
+</div>
+</div>
+<div class="p-6 bg-primary/5 rounded-lg border-2 border-primary/10">
+<p class="text-primary font-bold text-lg text-center">✨ AI 已准备就绪，为你生成最佳文案</p>
+</div>
+</section>
+</main>
+<!-- BottomNavBar Style Execution -->
+<footer class="fixed bottom-0 left-0 w-full z-50 bg-surface dark:bg-[#191c1e] rounded-t-[2rem] px-6 py-8 shadow-[0_-12px_32px_rgba(25,28,30,0.06)]">
+<div class="max-w-xl mx-auto flex flex-col gap-4">
+<!-- Inactive (Back) State shown only when not in step 1 -->
+<button class="text-[#191c1e] dark:text-[#f8f9fb] font-semibold px-8 py-2 flex items-center justify-center hover:opacity-90 active:scale-[0.96] transition-transform duration-200 hidden">
+<span class="material-symbols-outlined mr-2" data-icon="chevron_left">chevron_left</span>
+                返回上一步
+            </button>
+<!-- Active (Next) Button -->
+<button class="bg-gradient-to-br from-[#006c49] to-[#10b981] text-white rounded-lg px-12 py-5 flex items-center justify-center grow shadow-lg hover:opacity-90 active:scale-[0.96] transition-transform duration-200 font-headline font-bold text-xl">
+                下一步
+                <span class="material-symbols-outlined ml-2" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<!-- Example Step 4 CTA (Hidden initially) -->
+<button class="hidden bg-gradient-to-br from-[#006c49] to-[#10b981] text-white rounded-lg px-12 py-5 flex items-center justify-center grow shadow-lg hover:opacity-90 active:scale-[0.96] transition-transform duration-200 font-headline font-bold text-xl">
+                ⚡ 开始一键生成
+            </button>
+</div>
+</footer>
+</body></html>

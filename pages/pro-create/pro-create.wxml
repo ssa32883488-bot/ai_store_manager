@@ -1,0 +1,132 @@
+<!-- 专业制作页 -->
+<view class="pro-create-container">
+  <!-- 顶部导航栏 -->
+  <view class="nav-header">
+    <view class="back-btn" bindtap="onBack">
+      <van-icon name="arrow-left" color="#191c1e" size="40rpx" />
+    </view>
+    <text class="nav-title">专业模式</text>
+    <view class="nav-placeholder"></view>
+  </view>
+
+  <!-- 主内容区 -->
+  <scroll-view class="main-content" scroll-y>
+    <!-- 上传区域 -->
+    <view class="upload-section" bindtap="onChooseImage">
+      <view class="upload-area {{uploadedImage ? 'has-image' : ''}}">
+        <block wx:if="{{!uploadedImage}}">
+          <view class="upload-placeholder">
+            <view class="upload-icon-wrapper">
+              <text class="plus-icon">+</text>
+            </view>
+            <text class="upload-title">点击上传实拍原图</text>
+            <text class="upload-subtitle">支持 JPG, PNG 高清格式</text>
+          </view>
+        </block>
+        <block wx:else>
+          <image class="preview-image" src="{{uploadedImage}}" mode="aspectFill"/>
+          <view class="delete-btn" catchtap="onDeleteImage">
+            <van-icon name="cross" color="#ffffff" size="28rpx" />
+          </view>
+        </block>
+      </view>
+    </view>
+
+    <!-- 分发平台 -->
+    <view class="section">
+      <view class="section-header">
+        <text class="section-title">分发平台</text>
+        <view class="required-tag">必选</view>
+      </view>
+      <view class="platform-list">
+        <view 
+          wx:for="{{platforms}}"
+          wx:key="id"
+          class="platform-tag {{selectedPlatform === item.id ? 'selected' : ''}}"
+          bindtap="selectPlatform"
+          data-id="{{item.id}}"
+        >
+          {{item.name}}
+        </view>
+      </view>
+    </view>
+
+    <!-- 高级参数 -->
+    <view class="advanced-section">
+      <view class="advanced-header">
+        <van-icon name="setting-o" color="#006c49" size="36rpx" />
+        <text class="advanced-title">高级参数</text>
+      </view>
+
+      <!-- 自定义提示词 -->
+      <view class="form-group">
+        <text class="form-label">自定义提示词</text>
+        <textarea 
+          class="prompt-input" 
+          value="{{customPrompt}}"
+          bindinput="onPromptInput"
+          placeholder="请输入自定义提示词..."
+          maxlength="200"
+          auto-height
+        />
+      </view>
+
+      <!-- 重绘幅度滑块 -->
+      <view class="slider-group">
+        <view class="slider-header">
+          <text class="slider-label">重绘幅度</text>
+          <view class="slider-value">{{redrawValue}}</view>
+        </view>
+        <slider 
+          class="custom-slider" 
+          min="0" 
+          max="100" 
+          value="{{redrawSlider}}"
+          bindchange="onRedrawChange"
+          block-size="28"
+          block-color="#006c49"
+          activeColor="#006c49"
+          backgroundColor="#edeef0"
+        />
+        <view class="slider-labels">
+          <text>保真</text>
+          <text>重塑</text>
+        </view>
+      </view>
+
+      <!-- 风格强度滑块 -->
+      <view class="slider-group">
+        <view class="slider-header">
+          <text class="slider-label">风格强度</text>
+          <view class="slider-value">{{styleStrengthValue}}</view>
+        </view>
+        <slider 
+          class="custom-slider" 
+          min="0" 
+          max="100" 
+          value="{{styleStrengthSlider}}"
+          bindchange="onStyleStrengthChange"
+          block-size="28"
+          block-color="#006c49"
+          activeColor="#006c49"
+          backgroundColor="#edeef0"
+        />
+        <view class="slider-labels">
+          <text>自然</text>
+          <text>极致</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 底部占位 -->
+    <view class="bottom-spacer"></view>
+  </scroll-view>
+
+  <!-- 底部操作栏 -->
+  <view class="bottom-bar safe-area-bottom">
+    <van-button type="primary" size="large" round block color="linear-gradient(135deg, #006c49, #10b981)" custom-class="generate-btn" bind:click="startGenerate">
+      <van-icon name="lightning-o" color="#ffffff" size="36rpx" />
+      <text class="btn-text">开始专业生成</text>
+    </van-button>
+  </view>
+</view>

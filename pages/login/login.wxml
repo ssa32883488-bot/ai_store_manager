@@ -1,0 +1,37 @@
+<view class="login-container">
+  <view class="top-section">
+    <view class="illustration-box">
+      <image
+        class="login-hero-img"
+        src="{{loginHeroUrl}}"
+        mode="aspectFill"
+        binderror="onHeroError"
+      />
+    </view>
+    <text class="main-title">一键生成爆款图文</text>
+    <text class="sub-title">实体店与电商人的作图神器</text>
+  </view>
+  <view class="bottom-section">
+    <van-tag class="gift-tag" color="#FFF5E6" text-color="#FF6A00" round size="medium">
+      <van-icon name="gift-o" class="gift-icon"/>
+      首次登录即赠免费制作额度
+    </van-tag>
+    <van-button type="primary" round size="large"
+      color="linear-gradient(135deg, #07C160, #10B981)"
+      bind:click="onWechatLogin" custom-class="login-btn">
+      <van-icon name="wechat" class="btn-icon"/>
+      <text class="btn-text">微信一键授权登录</text>
+    </van-button>
+    <view class="agreement-row">
+      <van-checkbox value="{{isAgreed}}" bind:change="toggleAgreement"
+        shape="square" icon-size="18px">
+        <view class="agreement-text">
+          <text class="text-gray">我已阅读并同意</text>
+          <text class="link" catchtap="viewUserAgreement">《用户服务协议》</text>
+          <text class="text-gray">与</text>
+          <text class="link" catchtap="viewPrivacyPolicy">《隐私政策》</text>
+        </view>
+      </van-checkbox>
+    </view>
+  </view>
+</view>

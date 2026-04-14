@@ -1,0 +1,384 @@
+<!-- 极简制作页 -->
+<view class="simple-create-container">
+  <!-- 顶部导航栏 -->
+  <view class="nav-header">
+    <view class="back-btn" bindtap="onBack">
+      <van-icon name="arrow-left" color="#191c1e" size="40rpx" />
+    </view>
+    <text class="nav-title">极简制作</text>
+    <view class="step-indicator">{{currentStep}}/{{totalSteps}}</view>
+  </view>
+
+  <!-- 步骤进度条 -->
+  <view class="progress-bar">
+    <view class="progress-fill" style="width: {{(currentStep / totalSteps) * 100}}%"></view>
+  </view>
+
+  <!-- 主内容区 -->
+  <scroll-view class="main-content" scroll-y>
+    <!-- 步骤1：发布渠道 -->
+    <view class="step-section {{currentStep === 1 ? 'active' : 'hidden'}}">
+      <view class="step-header">
+        <text class="step-title">第一步：选择发布渠道</text>
+        <text class="step-subtitle">根据内容去向选择，后续将据此优化版式与文案</text>
+      </view>
+      <view class="publish-channel-list">
+        <view
+          wx:for="{{publishChannels}}"
+          wx:key="id"
+          class="publish-channel-btn {{selectedPublishChannel === item.id ? 'selected' : ''}}"
+          bindtap="selectPublishChannel"
+          data-id="{{item.id}}"
+        >
+          <view class="publish-channel-icon-wrap">
+            <image class="publish-channel-icon-img" src="{{item.iconPath}}" mode="aspectFill" />
+          </view>
+          <text class="publish-channel-name">{{item.name}}</text>
+          <van-icon wx:if="{{selectedPublishChannel === item.id}}" class="publish-channel-check" name="success" color="#10b981" size="36rpx" />
+        </view>
+      </view>
+    </view>
+
+    <!-- 步骤2：填写基本信息 -->
+    <view class="step-section {{currentStep === 2 ? 'active' : 'hidden'}}">
+      <view class="step-header">
+        <text class="step-title">{{selectedPublishChannel === 4 ? '第二步：填写品类，上传原图' : '第二步：填写基本信息'}}</text>
+        <text class="step-subtitle">{{selectedPublishChannel === 4 ? '填写产品名称并上传产品原图（用于电商主图重绘）' : '填写产品名称并上传产品原图'}}</text>
+      </view>
+
+      <view class="form-section">
+        <!-- 产品输入 -->
+        <view class="input-group">
+          <text class="input-label">产品名称</text>
+          <view class="input-wrapper">
+            <input 
+              class="product-input" 
+              value="{{productInput}}" 
+              bindinput="onProductInput" 
+              placeholder="如：手工草莓慕斯" 
+              placeholder-class="placeholder"
+            />
+            <view class="mic-btn" bindtap="onVoiceInput">
+              <van-icon name="volume-o" color="#ffffff" size="36rpx" />
+            </view>
+          </view>
+        </view>
+
+        <!-- 图片上传 -->
+        <view class="upload-section">
+          <text class="input-label">产品原图</text>
+          <view class="upload-area" bindtap="onChooseImage">
+            <block wx:if="{{!uploadedImage}}">
+              <view class="upload-placeholder">
+                <view class="upload-icon-wrapper">
+                  <van-icon name="photograph" color="#6c7a71" size="64rpx" />
+                </view>
+                <text class="upload-text">点击拍摄 / 从相册选取</text>
+              </view>
+            </block>
+            <block wx:else>
+              <image class="preview-image" src="{{uploadedImage}}" mode="aspectFill"/>
+              <view class="delete-btn" catchtap="onDeleteImage">
+                <van-icon name="cross" color="#ffffff" size="28rpx" />
+              </view>
+            </block>
+          </view>
+        </view>
+
+        <!-- 提示卡片 -->
+        <view class="tip-card">
+          <view class="tip-icon-wrapper">
+            <van-icon name="bulb-o" color="#006c49" size="40rpx" />
+          </view>
+          <text class="tip-text">小技巧：在明亮的光线下拍摄，画面感会更强哦！</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 第三步：参考图（电商主图为简化版） -->
+    <view class="step-section {{currentStep === 3 ? 'active' : 'hidden'}}">
+      <block wx:if="{{selectedPublishChannel === 4}}">
+        <view class="step-header">
+          <text class="step-title">第三步：上传参考图</text>
+          <text class="step-subtitle">请上传您想要复刻的电商主图</text>
+        </view>
+        <view class="option-section ref-style-section">
+          <block wx:if="{{!referenceImage}}">
+            <view class="upload-ref-box" bindtap="onUploadReference">
+              <text class="upload-ref-plus">+</text>
+              <text class="upload-ref-tip">点击上传参考图</text>
+            </view>
+          </block>
+          <block wx:else>
+            <view class="ref-preview-area" bindtap="onUploadReference">
+              <image class="ref-preview-image" src="{{referenceImage}}" mode="aspectFill" />
+              <view class="delete-btn" catchtap="onDeleteReferenceImage">
+                <van-icon name="cross" color="#ffffff" size="28rpx" />
+              </view>
+            </view>
+            <text class="ref-replace-tip">点击预览图可更换参考图</text>
+          </block>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="step-header">
+          <text class="step-title">第三步：按品类选择或上传参考图</text>
+          <text class="step-subtitle">先选品类，再选具体参考风格；也可上传自定义参考图（上传优先）</text>
+        </view>
+
+        <view class="option-section ref-style-section">
+          <view class="section-title-wrapper">
+            <van-icon name="apps-o" color="#006c49" size="36rpx" />
+            <text class="section-title">产品品类与参考风格</text>
+          </view>
+          <text class="ref-style-hint">先选择输入方式：预设风格或上传参考图</text>
+
+          <view class="ref-mode-toggle">
+            <view
+              class="ref-mode-btn {{refInputMode === 'preset' ? 'selected' : ''}}"
+              bindtap="selectRefInputMode"
+              data-mode="preset"
+            >选择预设风格</view>
+            <view
+              class="ref-mode-btn {{refInputMode === 'upload' ? 'selected' : ''}}"
+              bindtap="selectRefInputMode"
+              data-mode="upload"
+            >上传参考图</view>
+          </view>
+
+          <block wx:if="{{refInputMode === 'preset'}}">
+            <scroll-view class="ref-category-scroll" scroll-x show-scrollbar="{{false}}">
+              <view class="ref-category-inner">
+                <view
+                  wx:for="{{referenceStyleCategories}}"
+                  wx:key="id"
+                  class="ref-category-pill {{selectedRefCategory === item.id ? 'selected' : ''}}"
+                  bindtap="selectRefCategory"
+                  data-id="{{item.id}}"
+                >
+                  {{item.name}}
+                </view>
+              </view>
+            </scroll-view>
+
+            <block wx:for="{{referenceStyleCategories}}" wx:key="id">
+              <view wx:if="{{item.id === selectedRefCategory}}" class="ref-style-grid">
+                <view
+                  wx:for="{{item.styles}}"
+                  wx:for-item="st"
+                  wx:key="id"
+                  class="ref-style-card {{selectedReferenceStyleId === st.id ? 'selected' : ''}}"
+                  bindtap="selectReferenceStyle"
+                  data-id="{{st.id}}"
+                >
+                  <image class="ref-style-image" src="{{st.imageUrl}}" mode="aspectFill" />
+                  <view class="ref-style-label">{{st.name}}</view>
+                  <view wx:if="{{selectedReferenceStyleId === st.id}}" class="selected-check">
+                    <van-icon name="success" color="#ffffff" size="28rpx" />
+                  </view>
+                </view>
+              </view>
+            </block>
+          </block>
+
+          <block wx:else>
+            <block wx:if="{{!referenceImage}}">
+              <view class="upload-ref-box" bindtap="onUploadReference">
+                <text class="upload-ref-plus">+</text>
+                <text class="upload-ref-tip">点击上传参考图</text>
+              </view>
+            </block>
+            <block wx:else>
+              <view class="ref-preview-area" bindtap="onUploadReference">
+                <image class="ref-preview-image" src="{{referenceImage}}" mode="aspectFill" />
+                <view class="delete-btn" catchtap="onDeleteReferenceImage">
+                  <van-icon name="cross" color="#ffffff" size="28rpx" />
+                </view>
+              </view>
+              <text class="ref-replace-tip">点击预览图可更换参考图</text>
+            </block>
+          </block>
+        </view>
+      </block>
+    </view>
+
+    <!-- 第四步：补充信息（电商主图仅保留用户补充） -->
+    <view class="step-section {{currentStep === 4 ? 'active' : 'hidden'}}">
+      <!-- 朋友圈、小红薯、dou音 -->
+      <block wx:if="{{selectedPublishChannel === 1 || selectedPublishChannel === 2 || selectedPublishChannel === 3}}">
+        <view class="step-header">
+          <text class="step-title">第四步：补充信息并选择文案风格</text>
+          <text class="step-subtitle">补充卖点与禁忌，并选定文案调性</text>
+        </view>
+        <view class="form-section">
+          <view class="input-group">
+            <text class="input-label">补充说明</text>
+            <textarea
+              class="supplement-textarea"
+              value="{{supplementText}}"
+              maxlength="500"
+              placeholder="选填：卖点、话题方向、禁忌词、优惠信息等"
+              placeholder-class="placeholder"
+              bindinput="onSupplementInput"
+            />
+          </view>
+          <view class="option-section">
+            <view class="section-title-wrapper">
+              <van-icon name="edit" color="#006c49" size="36rpx" />
+              <text class="section-title">文案风格</text>
+            </view>
+            <view class="tone-list">
+              <view
+                wx:for="{{copywritingStyleOptions}}"
+                wx:key="id"
+                class="tone-tag {{selectedCopywritingStyle === item.id ? 'selected' : ''}}"
+                bindtap="selectCopywritingStyle"
+                data-id="{{item.id}}"
+              >
+                {{item.name}}
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+
+      <!-- 电商主图：仅用户补充描述 -->
+      <block wx:if="{{selectedPublishChannel === 4}}">
+        <view class="step-header">
+          <text class="step-title">第四步：用户补充描述</text>
+          <text class="step-subtitle">可选填写价格、优惠、规格、卖点等信息，帮助生成更贴合的主图</text>
+        </view>
+        <view class="form-section">
+          <view class="input-group">
+            <text class="input-label">补充说明</text>
+            <textarea
+              class="supplement-textarea"
+              value="{{supplementText}}"
+              maxlength="500"
+              placeholder="选填：价格、优惠、规格、使用场景、核心卖点等"
+              placeholder-class="placeholder"
+              bindinput="onSupplementInput"
+            />
+          </view>
+        </view>
+      </block>
+
+      <view class="ready-card">
+        <text class="ready-text">✨ 确认无误后即可开始生成，进入等待出图</text>
+      </view>
+    </view>
+
+    <!-- 第五步：生成中（Lottie 预留）→ 生成结果 -->
+    <view class="step-section {{currentStep === 5 ? 'active' : 'hidden'}}">
+      <block wx:if="{{generating && !resultReady}}">
+        <view class="step-header">
+          <text class="step-title">第五步：等待出图</text>
+          <text class="step-subtitle">后台制作中，完成后将以微信通知告知；你也可以稍后返回查看</text>
+        </view>
+        <!--
+          Lottie 接入说明（后续实现）：
+          1. 可使用 npm「lottie-miniprogram」或官方 canvas 方案；
+          2. 在下方 lottie-slot 内放置 <canvas type="2d" id="lottie-canvas" /> 并由 JS 初始化；
+          3. 保持 id「lottie-generating-slot」便于选择器定位；动画 JSON 建议放 /images/lottie/。
+        -->
+        <view class="lottie-slot" id="lottie-generating-slot">
+          <view class="lottie-placeholder-inner"></view>
+        </view>
+        <text class="generating-hint">{{generatingHintText}}</text>
+      </block>
+
+      <block wx:if="{{resultReady}}">
+        <view class="step-header">
+          <text class="step-title">生成完成</text>
+          <text class="step-subtitle">{{resultImageOnly ? '以下为本次生成主图' : '以下为本次生成内容，点选后可复制使用'}}</text>
+        </view>
+
+        <view class="inline-result-tag" wx:if="{{!resultImageOnly}}">{{resultPlatformName}}</view>
+
+        <view class="inline-result-image-card">
+          <image class="inline-result-image" src="{{resultImageUrl}}" mode="widthFix" />
+        </view>
+        <view class="inline-image-actions">
+          <van-button
+            size="small"
+            round
+            type="primary"
+            color="linear-gradient(135deg, #006c49, #10b981)"
+            custom-class="inline-copy-btn image-download-btn"
+            bind:click="onResultDownloadImage"
+          >
+            一键下载图片
+          </van-button>
+        </view>
+
+        <view class="inline-result-section" wx:if="{{!resultImageOnly && resultShowTitles}}">
+          <view class="inline-section-head">
+            <text class="inline-section-title">标题</text>
+            <text class="inline-section-hint">请选择一个（共 7 条备选）</text>
+          </view>
+          <view class="inline-option-list">
+            <view
+              wx:for="{{resultTitleOptions}}"
+              wx:key="id"
+              class="inline-option-item {{resultSelectedTitleId === item.id ? 'selected' : ''}}"
+              bindtap="onResultSelectTitle"
+              data-id="{{item.id}}"
+            >
+              <text class="inline-option-text">{{item.text}}</text>
+            </view>
+          </view>
+        </view>
+
+        <view class="inline-result-section" wx:if="{{!resultImageOnly}}">
+          <view class="inline-section-head">
+            <text class="inline-section-title">{{resultShowTitles ? '正文文案' : '朋友圈文案'}}</text>
+            <text class="inline-section-hint">请选择一个（共 3 条备选）</text>
+          </view>
+          <view class="inline-option-list">
+            <view
+              wx:for="{{resultCopyOptions}}"
+              wx:key="id"
+              class="inline-option-item copy-item {{resultSelectedCopyId === item.id ? 'selected' : ''}}"
+              bindtap="onResultSelectCopy"
+              data-id="{{item.id}}"
+            >
+              <text class="inline-option-text">{{item.text}}</text>
+            </view>
+          </view>
+        </view>
+
+        <view class="inline-copy-actions" wx:if="{{!resultImageOnly}}">
+          <van-button wx:if="{{resultShowTitles}}" size="small" round plain hairline type="primary" custom-class="inline-copy-btn" bind:click="onResultCopyTitle">复制标题</van-button>
+          <van-button size="small" round plain hairline type="primary" custom-class="inline-copy-btn" bind:click="onResultCopyBody">复制文案</van-button>
+          <van-button size="small" round type="primary" color="linear-gradient(135deg, #006c49, #10b981)" custom-class="inline-copy-btn" bind:click="onResultCopyAll">{{resultShowTitles ? '复制标题+文案' : '复制全文'}}</van-button>
+        </view>
+      </block>
+    </view>
+
+    <!-- 底部占位 -->
+    <view class="bottom-spacer"></view>
+  </scroll-view>
+
+  <!-- 底部操作栏 -->
+  <view class="action-bar safe-area-bottom">
+    <view wx:if="{{currentStep > 1}}" class="back-step-btn" bindtap="prevStep">
+      <van-icon name="arrow-left" color="#6c7a71" size="28rpx" />
+      <text class="back-step-text">返回上一步</text>
+    </view>
+
+    <van-button wx:if="{{currentStep < 4}}" type="primary" size="large" round block color="linear-gradient(135deg, #006c49, #10b981)" custom-class="next-btn" bind:click="nextStep">
+      <text class="next-text">下一步</text>
+      <van-icon name="arrow" color="#ffffff" size="28rpx" />
+    </van-button>
+
+    <van-button wx:if="{{currentStep === 4}}" type="primary" size="large" round block color="linear-gradient(135deg, #006c49, #10b981)" custom-class="generate-btn" bind:click="startGenerate">
+      <text class="generate-text">开始—一键生成</text>
+    </van-button>
+
+    <view wx:if="{{currentStep === 5 && generating}}" class="step5-footer-hint">生成中，请稍候…</view>
+
+    <van-button wx:if="{{currentStep === 5 && resultReady}}" type="primary" size="large" round block color="linear-gradient(135deg, #006c49, #10b981)" custom-class="generate-btn" bind:click="onResultGoHome">
+      <text class="generate-text">完成并返回首页</text>
+    </van-button>
+  </view>
+</view>

@@ -1,0 +1,14 @@
+{
+  "name": "generateJWTCoze",
+  "version": "1.0.0",
+  "description": "云函数 - 生成JWT令牌用于Coze OAuth认证",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

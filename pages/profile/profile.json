@@ -1,0 +1,7 @@
+{
+  "usingComponents": {},
+  "navigationBarTitleText": "AI小店长",
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#f8f9fb",
+  "onReachBottomDistance": 50
+}

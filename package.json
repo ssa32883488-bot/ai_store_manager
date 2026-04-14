@@ -1,0 +1,16 @@
+{
+  "name": "ai_store_manager",
+  "version": "1.0.0",
+  "description": "基于大模型的双轨制电商营销助理微信小程序。",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@vant/weapp": "^1.11.7"
+  }
+}

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed": "#002113",
+                    "tertiary-fixed-dim": "#ffb3af",
+                    "secondary-fixed-dim": "#9ed2b5",
+                    "on-secondary": "#ffffff",
+                    "surface": "#f8f9fb",
+                    "on-tertiary-container": "#711419",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed": "#baeed1",
+                    "on-error-container": "#93000a",
+                    "on-background": "#191c1e",
+                    "surface-tint": "#006c49",
+                    "surface-variant": "#e1e2e4",
+                    "surface-dim": "#d9dadc",
+                    "outline": "#6c7a71",
+                    "on-primary-container": "#00422b",
+                    "surface-container-low": "#f2f4f6",
+                    "secondary": "#376850",
+                    "on-tertiary-fixed-variant": "#842225",
+                    "on-surface": "#191c1e",
+                    "inverse-primary": "#4edea3",
+                    "background": "#f8f9fb",
+                    "surface-container": "#edeef0",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed-variant": "#1e4f3a",
+                    "surface-bright": "#f8f9fb",
+                    "inverse-on-surface": "#f0f1f3",
+                    "primary-fixed": "#6ffbbe",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#005236",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-highest": "#e1e2e4",
+                    "on-secondary-container": "#3c6c54",
+                    "on-primary-fixed": "#002113",
+                    "error": "#ba1a1a",
+                    "surface-container-high": "#e7e8ea",
+                    "primary": "#006c49",
+                    "outline-variant": "#bbcabf",
+                    "tertiary": "#a43a3a",
+                    "primary-fixed-dim": "#4edea3",
+                    "primary-container": "#10b981",
+                    "tertiary-container": "#fc7c78",
+                    "on-tertiary-fixed": "#410005",
+                    "on-surface-variant": "#3c4a42",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed": "#ffdad7",
+                    "secondary-container": "#b7ebce",
+                    "inverse-surface": "#2e3132"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Lexend"],
+                    "body": ["Plus Jakarta Sans"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .custom-slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 12px;
+            background: #edeef0;
+            border-radius: 1rem;
+            outline: none;
+        }
+        .custom-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 28px;
+            height: 28px;
+            background: #006c49;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 108, 73, 0.2);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- Header (Shared Component) -->
+<header class="fixed top-0 w-full z-50 bg-[#f8f9fb]/80 dark:bg-[#191c1e]/80 backdrop-blur-md shadow-sm dark:shadow-none h-20 flex items-center px-6 py-4">
+<div class="flex items-center gap-4">
+<button class="hover:bg-[#f2f4f6] dark:hover:bg-[#191c1e] rounded-full transition-colors active:scale-95 duration-200 p-2 flex items-center justify-center">
+<span class="material-symbols-outlined text-[#10B981] text-3xl">arrow_back</span>
+</button>
+<h1 class="font-headline text-2xl font-bold tracking-tight text-[#191c1e]">Professional Mode</h1>
+</div>
+</header>
+<main class="pt-20 pb-32 max-w-3xl mx-auto px-4 sm:px-6">
+<!-- Upload Area: 1/3 Screen Height -->
+<section class="mt-4 mb-8">
+<div class="w-full h-[291px] border-4 border-dashed border-outline-variant rounded-lg flex flex-col items-center justify-center bg-surface-container-lowest transition-all hover:bg-surface-container hover:border-primary cursor-pointer group">
+<div class="bg-primary/10 rounded-full p-6 mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-5xl" style="font-variation-settings: 'wght' 600;">add</span>
+</div>
+<p class="font-headline text-xl font-semibold text-on-surface-variant">点击上传实拍原图</p>
+<p class="mt-2 text-sm text-outline font-medium">支持 JPG, PNG 高清格式</p>
+</div>
+</section>
+<!-- Section 1: Distribution Platforms -->
+<section class="mb-10">
+<div class="flex items-center justify-between mb-4">
+<h2 class="font-headline text-2xl font-bold">分发平台</h2>
+<span class="text-primary text-sm font-bold bg-primary/10 px-3 py-1 rounded-full">必选</span>
+</div>
+<div class="flex gap-3 overflow-x-auto hide-scrollbar py-2">
+<button class="flex-shrink-0 px-8 py-4 bg-primary text-white rounded-full font-bold shadow-lg shadow-primary/20 text-lg transition-transform active:scale-95">朋友圈</button>
+<button class="flex-shrink-0 px-8 py-4 bg-surface-container-high text-on-surface rounded-full font-bold text-lg hover:bg-surface-container-highest transition-all active:scale-95">小红书</button>
+<button class="flex-shrink-0 px-8 py-4 bg-surface-container-high text-on-surface rounded-full font-bold text-lg hover:bg-surface-container-highest transition-all active:scale-95">抖音</button>
+<button class="flex-shrink-0 px-8 py-4 bg-surface-container-high text-on-surface rounded-full font-bold text-lg hover:bg-surface-container-highest transition-all active:scale-95">视频号</button>
+<button class="flex-shrink-0 px-8 py-4 bg-surface-container-high text-on-surface rounded-full font-bold text-lg hover:bg-surface-container-highest transition-all active:scale-95">今日头条</button>
+</div>
+</section>
+<!-- Section 2: Visual Style Grid -->
+<section class="mb-10">
+<h2 class="font-headline text-2xl font-bold mb-6">视觉风格</h2>
+<div class="grid grid-cols-2 gap-4">
+<!-- Style Card 1 -->
+<div class="relative group cursor-pointer overflow-hidden rounded-lg">
+<div class="aspect-[4/5] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="dramatic close-up of a gourmet steak with fresh herbs and smoke on a dark rustic wooden table with directional lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAK1SPfN2nGIot4RzMVLT613EryW-gCN8r0Gebeqk8eQoLjoUCLw-JSK1qzyN5LVJOV4JfSj75lQ5wiFG2nUcrFeNGs96g8erdRT3hqwaLnwSnAVO1hfVHKpI9Df9mOPcMKO75TPAKSi6HsI0rgBz0hC0xHB8cKhh_rmS60IzSezp2xEIkSD-pRpMTSd1nGqtI9J3cQ9Q6dMyOm5nMu1dkQktyTV-B8g_VbbNZsq944h2NOLOeNfrvU5LYUSvPwGkUOiITIEIqYGg"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-4">
+<p class="text-white font-headline text-lg font-bold">美食特写</p>
+<div class="absolute top-3 right-3 bg-primary text-white p-1 rounded-full opacity-100">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+</div>
+<!-- Style Card 2 -->
+<div class="relative group cursor-pointer overflow-hidden rounded-lg">
+<div class="aspect-[4/5] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-70" data-alt="minimalist e-commerce product shot of a sleek modern watch on a clean white geometric podium with soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3hvg-iSseP35BMTii49eeKGxMjTdhCztEdU51U9Jee5o3hGiuxeIhx9foeED8o2pk8U_JL8z4p_vpQ7dGH6IE1SJ3T6BZ_JqKE9WlDq3R0mz8tBRuJGRiN-lUM5LFQAW4yHEzj_OvKvdZ-VfUP5K3uVTm63_8c2TuWJOY1EWGZlOYEkNAYywph0ZGq0GTEECh6AMD89p1ZH8bQFG12cgKPnvpTF6R5OItrkMo9PM8PIJHKNFGHuYcuc6-YIWtIZ4WL8lqEjea1A"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex flex-col justify-end p-4">
+<p class="text-white font-headline text-lg font-bold">电商主图</p>
+</div>
+</div>
+<!-- Style Card 3 -->
+<div class="relative group cursor-pointer overflow-hidden rounded-lg">
+<div class="aspect-[4/5] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-70" data-alt="vibrant urban fashion photography with neon lights reflecting off a wet city pavement at night in a cinematic style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtwFMB2d10BFhtjRnrfVXKo3psWl3q5NtskRqcw0JSc3S6qAnaDeH7vmL2ZkPLJ5b_Wu5JikW4sZfurLaKxIRl5V2MSN7-yqjdcdN7UXZ3ifHyqJekfbpPGBjyM6Cr5PGKTygXeewIRQSIIdXS22RzRvWNJorJd8vVUqoZAd29xmfkm9aCLfrpFaX93daFVLYp2kUomvCEP9EMrGcczD3FvwoBZYOgh64ZBbv27BPZdCan38-jV4OoH6g1yRNOgMTr30WiTkD8Mw"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex flex-col justify-end p-4">
+<p class="text-white font-headline text-lg font-bold">潮流动感</p>
+</div>
+</div>
+<!-- Style Card 4 -->
+<div class="relative group cursor-pointer overflow-hidden rounded-lg">
+<div class="aspect-[4/5] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-70" data-alt="clean bright lifestyle photography of a boutique storefront interior with warm wood accents and abundant natural sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLoXQqsoudk4_8c3YRne5KJDwGpYrNxj_yKNMSfLFL9AdHgI2ipIpdrEF2iH_SJqgZtJQ2cPUlUgLwWV1QL-160eyfeJ3bcVdYJ7t2OQ4zXb87rBlDl6p_7C0WUsEN91DWcVaPgASHXW0KVMExwHpwl76LN3KoyFX_TscO1RN7S0h1Hg4866UGZl_4PO375owYRGseu2MRpC2guSle0WTAGJfciBZhNR0HoLeAGjjkZIgu22va95AZlLiLn0QuidxRV72jx34rXw"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex flex-col justify-end p-4">
+<p class="text-white font-headline text-lg font-bold">温馨生活</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Advanced Parameters -->
+<section class="mb-12 bg-surface-container-low p-6 rounded-lg">
+<h2 class="font-headline text-2xl font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">tune</span>
+                高级参数
+            </h2>
+<div class="space-y-8">
+<!-- Custom Prompt -->
+<div>
+<label class="block font-headline text-lg font-bold mb-3 text-on-surface">自定义提示词</label>
+<textarea class="w-full bg-surface-container-lowest border-2 border-outline-variant rounded-DEFAULT p-4 text-lg focus:border-primary focus:ring-0 transition-colors" placeholder="请输入自定义提示词..." rows="3"></textarea>
+</div>
+<!-- Range Slider 1 -->
+<div>
+<div class="flex justify-between items-center mb-4">
+<label class="font-headline text-lg font-bold">重绘幅度</label>
+<span class="bg-primary-container text-on-primary-container px-3 py-1 rounded-full font-bold">0.65</span>
+</div>
+<input class="custom-slider" max="100" min="0" type="range" value="65"/>
+<div class="flex justify-between mt-2 text-sm font-medium text-outline">
+<span>保真</span>
+<span>重塑</span>
+</div>
+</div>
+<!-- Range Slider 2 -->
+<div>
+<div class="flex justify-between items-center mb-4">
+<label class="font-headline text-lg font-bold">风格强度</label>
+<span class="bg-primary-container text-on-primary-container px-3 py-1 rounded-full font-bold">0.82</span>
+</div>
+<input class="custom-slider" max="100" min="0" type="range" value="82"/>
+<div class="flex justify-between mt-2 text-sm font-medium text-outline">
+<span>自然</span>
+<span>极致</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Action Bar -->
+<div class="fixed bottom-0 left-0 w-full bg-surface-container-lowest/90 backdrop-blur-xl p-6 flex justify-center z-50">
+<button class="w-[90%] max-w-2xl bg-gradient-to-r from-primary to-primary-container text-white py-5 rounded-full font-headline text-xl font-extrabold flex items-center justify-center gap-2 shadow-xl shadow-primary/30 active:scale-95 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bolt</span>
+            ⚡ 开始专业生成
+        </button>
+</div>
+</body></html>

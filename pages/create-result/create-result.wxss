@@ -1,0 +1,136 @@
+page {
+  background-color: #f8f9fb;
+  min-height: 100vh;
+}
+
+.result-page {
+  min-height: 100vh;
+  padding-bottom: calc(160rpx + env(safe-area-inset-bottom));
+  box-sizing: border-box;
+}
+
+.empty-wrap {
+  padding: 120rpx 48rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48rpx;
+}
+
+.empty-text {
+  font-size: 30rpx;
+  color: #6c7a71;
+}
+
+.result-scroll {
+  height: calc(100vh - 200rpx - env(safe-area-inset-bottom));
+  padding: 32rpx;
+  padding-bottom: 48rpx;
+  box-sizing: border-box;
+}
+
+.platform-tag {
+  display: inline-block;
+  font-size: 24rpx;
+  font-weight: 700;
+  color: #006c49;
+  background: rgba(0, 108, 73, 0.1);
+  padding: 12rpx 24rpx;
+  border-radius: 9999rpx;
+  margin-bottom: 24rpx;
+}
+
+.image-card {
+  background: #ffffff;
+  border-radius: 24rpx;
+  overflow: hidden;
+  box-shadow: 0 8rpx 32rpx rgba(25, 28, 30, 0.06);
+  margin-bottom: 40rpx;
+}
+
+.result-image {
+  width: 100%;
+  display: block;
+  vertical-align: top;
+}
+
+.section {
+  margin-bottom: 40rpx;
+}
+
+.section-head {
+  margin-bottom: 20rpx;
+}
+
+.section-title {
+  display: block;
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #191c1e;
+  margin-bottom: 8rpx;
+}
+
+.section-hint {
+  font-size: 24rpx;
+  color: #6c7a71;
+}
+
+.option-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.option-item {
+  background: #ffffff;
+  border-radius: 20rpx;
+  padding: 24rpx 28rpx;
+  border: 3rpx solid transparent;
+  box-shadow: 0 4rpx 16rpx rgba(25, 28, 30, 0.04);
+}
+
+.option-item.selected {
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.06);
+}
+
+.option-text {
+  font-size: 28rpx;
+  color: #191c1e;
+  line-height: 1.55;
+}
+
+.copy-item .option-text {
+  line-height: 1.65;
+}
+
+.copy-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+  margin-bottom: 24rpx;
+}
+
+.copy-btn {
+  flex: 1;
+  min-width: 200rpx;
+}
+
+.bottom-spacer {
+  height: 32rpx;
+}
+
+.footer-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 24rpx 32rpx;
+  padding-bottom: calc(24rpx + env(safe-area-inset-bottom));
+  background: linear-gradient(180deg, rgba(248, 249, 251, 0) 0%, #f8f9fb 24%);
+  z-index: 10;
+}
+
+.safe-area-bottom {
+  padding-bottom: calc(24rpx + env(safe-area-inset-bottom));
+}

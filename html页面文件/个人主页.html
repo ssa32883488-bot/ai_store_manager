@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Store Manager Personal Center</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#376850",
+                        "inverse-primary": "#4edea3",
+                        "surface-container-high": "#e7e8ea",
+                        "on-primary-container": "#00422b",
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#3c6c54",
+                        "secondary-fixed": "#baeed1",
+                        "on-tertiary-container": "#711419",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#005236",
+                        "on-background": "#191c1e",
+                        "secondary-fixed-dim": "#9ed2b5",
+                        "tertiary-fixed-dim": "#ffb3af",
+                        "background": "#f8f9fb",
+                        "surface-container-low": "#f2f4f6",
+                        "on-tertiary": "#ffffff",
+                        "secondary-container": "#b7ebce",
+                        "inverse-surface": "#2e3132",
+                        "tertiary": "#a43a3a",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed": "#410005",
+                        "surface-bright": "#f8f9fb",
+                        "primary-fixed": "#6ffbbe",
+                        "outline": "#6c7a71",
+                        "surface-variant": "#e1e2e4",
+                        "surface-container": "#edeef0",
+                        "on-tertiary-fixed-variant": "#842225",
+                        "primary-container": "#10b981",
+                        "primary-fixed-dim": "#4edea3",
+                        "on-surface-variant": "#3c4a42",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#d9dadc",
+                        "surface-tint": "#006c49",
+                        "surface-container-highest": "#e1e2e4",
+                        "on-secondary-fixed-variant": "#1e4f3a",
+                        "on-secondary-fixed": "#002113",
+                        "surface": "#f8f9fb",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#fc7c78",
+                        "on-primary-fixed": "#002113",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "primary": "#006c49",
+                        "inverse-on-surface": "#f0f1f3",
+                        "tertiary-fixed": "#ffdad7",
+                        "on-surface": "#191c1e",
+                        "outline-variant": "#bbcabf"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Lexend"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        h1, h2, h3 { font-family: 'Lexend', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#f8f9fb]/80 dark:bg-[#191c1e]/80 backdrop-blur-xl">
+<div class="flex justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface text-2xl">account_circle</span>
+<h1 class="font-['Lexend'] font-bold text-xl text-[#191c1e] dark:text-[#f8f9fb]">Personal Center</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#6c7a71] cursor-pointer hover:bg-[#f2f4f6] p-2 rounded-full transition-all">settings</span>
+</div>
+</div>
+</header>
+<main class="pt-20 px-4 space-y-6 max-w-2xl mx-auto">
+<!-- Top User Card -->
+<section class="bg-surface-container-lowest rounded-DEFAULT p-6 shadow-[0_12px_32px_rgba(25,28,30,0.06)] flex items-start gap-5">
+<div class="relative">
+<img class="w-20 h-20 rounded-full object-cover border-4 border-primary/10 shadow-sm" data-alt="Close-up portrait of a friendly mature Asian woman with a warm smile, professional setting, soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzvgBm3eNsB8d5WE6buz5roOtiB0_F-8QHUUIqpi23b8WMVtnBB34R2G9VfKR-pwDpWgNkguzBhlrUjDHNK3DCnoUP6WVL8rJk9-A7k47adHxIQwD-76b26aVQxEbklCR34ViuOjyLKGIThnpgG7ZWWyL3J3Q_TwchM9VJ4pNfe5JHpoLJ4UwPUcHz6rO-eBdJYhkSmqG6BFtx6mnzyjIKUyIyYssuXhLTYDTqhVH_0_SsM5Rh915D7cJjZB5EIAVwxXEnPEPfhg"/>
+<div class="absolute -bottom-1 -right-1 bg-primary text-white p-1 rounded-full border-2 border-white">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<h2 class="text-xl font-bold text-on-surface">小店长老板娘</h2>
+<span class="bg-primary/10 text-primary text-xs font-bold px-2 py-0.5 rounded-full border border-primary/20">VIP Member</span>
+</div>
+<div class="mt-4 bg-surface-container-low rounded-xl p-4 flex flex-col items-start gap-1">
+<span class="text-outline text-sm font-medium">Subscription Credits</span>
+<p class="text-on-surface font-bold text-lg">Remaining Generations: 28 times</p>
+</div>
+</div>
+</section>
+<!-- Quick Access -->
+<section class="flex gap-4">
+<button class="flex-1 bg-surface-container-lowest rounded-DEFAULT p-5 flex flex-col items-center justify-center gap-3 transition-transform active:scale-95 shadow-[0_8px_20px_rgba(25,28,30,0.04)] group">
+<div class="w-14 h-14 rounded-2xl bg-secondary-container flex items-center justify-center text-on-secondary-container group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">folder</span>
+</div>
+<span class="font-bold text-on-surface-variant text-lg">📁 My Works</span>
+</button>
+<button class="flex-1 bg-surface-container-lowest rounded-DEFAULT p-5 flex flex-col items-center justify-center gap-3 transition-transform active:scale-95 shadow-[0_8px_20px_rgba(25,28,30,0.04)] group">
+<div class="w-14 h-14 rounded-2xl bg-primary-container/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">edit_note</span>
+</div>
+<span class="font-bold text-on-surface-variant text-lg">📝 My Drafts</span>
+</button>
+</section>
+<!-- Settings List -->
+<section class="bg-surface-container-lowest rounded-DEFAULT overflow-hidden shadow-[0_12px_32px_rgba(25,28,30,0.06)]">
+<div class="divide-y divide-outline/10">
+<!-- Recharge Center -->
+<div class="flex items-center justify-between p-5 hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center text-orange-600">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">payments</span>
+</div>
+<span class="text-lg font-semibold text-on-surface">Recharge Center</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform">chevron_right</span>
+</div>
+<!-- Help & Tutorials -->
+<div class="flex items-center justify-between p-5 hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+</div>
+<span class="text-lg font-semibold text-on-surface">Help &amp; Tutorials</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform">chevron_right</span>
+</div>
+<!-- Contact Customer Service -->
+<div class="flex items-center justify-between p-5 hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">support_agent</span>
+</div>
+<span class="text-lg font-semibold text-on-surface">Contact Customer Service</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform">chevron_right</span>
+</div>
+<!-- About Us -->
+<div class="flex items-center justify-between p-5 hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">info</span>
+</div>
+<span class="text-lg font-semibold text-on-surface">About Us</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform">chevron_right</span>
+</div>
+</div>
+</section>
+<!-- Logout / Switch Account -->
+<button class="w-full py-5 bg-surface-container-low rounded-DEFAULT text-error font-bold text-lg hover:bg-error/5 transition-colors active:scale-[0.98] mt-4">
+            Switch Account
+        </button>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-[32px] bg-[#ffffff]/80 dark:bg-[#191c1e]/80 backdrop-blur-xl shadow-[0_-12px_32px_rgba(25,28,30,0.06)]">
+<div class="flex justify-around items-center px-4 py-3 w-full">
+<a class="flex flex-col items-center justify-center text-[#6c7a71] px-5 py-2 hover:opacity-80 transition-opacity active:scale-96 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Lexend'] font-medium text-[12px]">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#6c7a71] px-5 py-2 hover:opacity-80 transition-opacity active:scale-96 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="font-['Lexend'] font-medium text-[12px]">Works</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#6c7a71] px-5 py-2 hover:opacity-80 transition-opacity active:scale-96 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+<span class="font-['Lexend'] font-medium text-[12px]">Drafts</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#10B981]/10 text-[#10B981] rounded-[16px] px-5 py-2 hover:opacity-80 transition-opacity active:scale-96 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-['Lexend'] font-medium text-[12px]">Me</span>
+</a>
+</div>
+</nav>
+</body></html>

@@ -1,0 +1,66 @@
+<view class="result-page">
+  <block wx:if="{{empty}}">
+    <view class="empty-wrap">
+      <text class="empty-text">暂无生成结果</text>
+      <van-button type="primary" round block color="linear-gradient(135deg, #006c49, #10b981)" bind:click="goHome">返回首页</van-button>
+    </view>
+  </block>
+
+  <block wx:else>
+    <scroll-view class="result-scroll" scroll-y>
+      <view class="platform-tag">{{platformName}}</view>
+
+      <view class="image-card">
+        <image class="result-image" src="{{imageUrl}}" mode="widthFix" />
+      </view>
+
+      <view class="section" wx:if="{{showTitles}}">
+        <view class="section-head">
+          <text class="section-title">标题</text>
+          <text class="section-hint">请选择一个（共 7 条备选）</text>
+        </view>
+        <view class="option-list">
+          <view
+            wx:for="{{titleOptions}}"
+            wx:key="id"
+            class="option-item {{selectedTitleId === item.id ? 'selected' : ''}}"
+            bindtap="selectTitle"
+            data-id="{{item.id}}"
+          >
+            <text class="option-text">{{item.text}}</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section-head">
+          <text class="section-title">{{showTitles ? '正文文案' : '朋友圈文案'}}</text>
+          <text class="section-hint">请选择一个（共 3 条备选）</text>
+        </view>
+        <view class="option-list">
+          <view
+            wx:for="{{copyOptions}}"
+            wx:key="id"
+            class="option-item copy-item {{selectedCopyId === item.id ? 'selected' : ''}}"
+            bindtap="selectCopy"
+            data-id="{{item.id}}"
+          >
+            <text class="option-text">{{item.text}}</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="copy-actions">
+        <van-button wx:if="{{showTitles}}" size="small" round plain hairline type="primary" custom-class="copy-btn" bind:click="onCopyTitle">复制标题</van-button>
+        <van-button size="small" round plain hairline type="primary" custom-class="copy-btn" bind:click="onCopyBody">复制文案</van-button>
+        <van-button size="small" round type="primary" color="linear-gradient(135deg, #006c49, #10b981)" custom-class="copy-btn" bind:click="onCopyAll">{{showTitles ? '复制标题+文案' : '复制全文'}}</van-button>
+      </view>
+
+      <view class="bottom-spacer"></view>
+    </scroll-view>
+
+    <view class="footer-bar safe-area-bottom">
+      <van-button type="primary" round block color="linear-gradient(135deg, #006c49, #10b981)" bind:click="goHome">完成并返回首页</van-button>
+    </view>
+  </block>
+</view>

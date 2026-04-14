@@ -1,0 +1,268 @@
+/* 个人主页样式 */
+page {
+  background-color: #f8f9fb;
+}
+
+.profile-container {
+  min-height: 100vh;
+  padding-bottom: calc(40rpx + env(safe-area-inset-bottom));
+}
+
+/* 顶部导航栏 */
+.nav-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 96rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32rpx;
+  background: #f8f9fb;
+  z-index: 100;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.nav-title {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #191c1e;
+}
+
+.settings-btn {
+  width: 64rpx;
+  height: 64rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* 主内容区 */
+.main-content {
+  padding: 120rpx 32rpx 32rpx;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+/* 用户信息卡片 */
+.user-card {
+  background: #ffffff;
+  border-radius: 24rpx;
+  padding: 32rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 8rpx 40rpx rgba(25, 28, 30, 0.04);
+}
+
+.user-info {
+  display: flex;
+  gap: 24rpx;
+  align-items: flex-start;
+}
+
+.avatar-wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.user-avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  border: 4rpx solid rgba(0, 108, 73, 0.1);
+}
+
+.vip-badge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 36rpx;
+  height: 36rpx;
+  background: #006c49;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3rpx solid #ffffff;
+}
+
+.user-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+  padding-top: 4rpx;
+}
+
+.user-name-row {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  flex-wrap: wrap;
+}
+
+.user-name {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #191c1e;
+}
+
+.vip-tag {
+  background: rgba(0, 108, 73, 0.1);
+  color: #006c49;
+  font-size: 22rpx;
+  font-weight: 600;
+  padding: 6rpx 16rpx;
+  border-radius: 9999rpx;
+  border: 2rpx solid rgba(0, 108, 73, 0.2);
+}
+
+.credit-box {
+  background: #f2f4f6;
+  border-radius: 16rpx;
+  padding: 20rpx 24rpx;
+}
+
+.credit-label {
+  font-size: 26rpx;
+  color: #6c7a71;
+  font-weight: 500;
+}
+
+/* 快捷入口 */
+.quick-access {
+  display: flex;
+  gap: 24rpx;
+  margin-bottom: 24rpx;
+}
+
+.access-card {
+  flex: 1;
+  background: #ffffff;
+  border-radius: 24rpx;
+  padding: 32rpx 24rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16rpx;
+  box-shadow: 0 8rpx 40rpx rgba(25, 28, 30, 0.04);
+  transition: transform 0.2s ease;
+}
+
+.access-card:active {
+  transform: scale(0.98);
+}
+
+.access-icon-wrapper {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.access-icon-wrapper.orange {
+  background: rgba(0, 108, 73, 0.1);
+}
+
+.access-icon-wrapper.green {
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.access-text {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #191c1e;
+}
+
+/* 设置列表 */
+.settings-list {
+  background: #ffffff;
+  border-radius: 24rpx;
+  overflow: hidden;
+  box-shadow: 0 8rpx 40rpx rgba(25, 28, 30, 0.04);
+  margin-bottom: 24rpx;
+}
+
+.settings-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28rpx 32rpx;
+  border-bottom: 2rpx solid rgba(0, 0, 0, 0.03);
+  transition: all 0.2s ease;
+}
+
+.settings-item:last-child {
+  border-bottom: none;
+}
+
+.settings-item:active {
+  background: #f2f4f6;
+}
+
+.item-left {
+  display: flex;
+  align-items: center;
+  gap: 24rpx;
+}
+
+.item-icon-wrapper {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-icon-wrapper.orange-light {
+  background: #fff7ed;
+}
+
+.item-icon-wrapper.blue-light {
+  background: #eff6ff;
+}
+
+.item-icon-wrapper.green-light {
+  background: rgba(0, 108, 73, 0.05);
+}
+
+.item-icon-wrapper.gray-light {
+  background: #f2f4f6;
+}
+
+.item-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #191c1e;
+  line-height: 1.3;
+}
+
+/* 切换账号 */
+.switch-account {
+  width: 100%;
+  padding: 32rpx;
+  background: #f2f4f6;
+  border-radius: 24rpx;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.switch-account:active {
+  background: rgba(186, 26, 26, 0.05);
+}
+
+.switch-text {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #ba1a1a;
+}

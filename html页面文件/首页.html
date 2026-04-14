@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+
+
+
+<html lang="zh-CN"><head>
+
+<meta charset="utf-8"/>
+
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<title>AI小店长 - 首页</title>
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+<script id="tailwind-config">
+
+      tailwind.config = {
+
+        darkMode: "class",
+
+        theme: {
+
+          extend: {
+
+            "colors": {
+
+                    "surface-container": "#edeef0",
+
+                    "primary-container": "#10b981",
+
+                    "on-primary-container": "#00422b",
+
+                    "on-primary-fixed": "#002113",
+
+                    "surface": "#f8f9fb",
+
+                    "secondary-fixed": "#baeed1",
+
+                    "surface-dim": "#d9dadc",
+
+                    "on-secondary-container": "#3c6c54",
+
+                    "primary": "#006c49",
+
+                    "outline": "#6c7a71",
+
+                    "inverse-on-surface": "#f0f1f3",
+
+                    "surface-container-highest": "#e1e2e4",
+
+                    "on-tertiary-container": "#711419",
+
+                    "primary-fixed": "#6ffbbe",
+
+                    "outline-variant": "#bbcabf",
+
+                    "secondary-container": "#b7ebce",
+
+                    "error-container": "#ffdad6",
+
+                    "surface-bright": "#f8f9fb",
+
+                    "background": "#f8f9fb",
+
+                    "surface-container-high": "#e7e8ea",
+
+                    "on-error": "#ffffff",
+
+                    "on-tertiary": "#ffffff",
+
+                    "surface-tint": "#006c49",
+
+                    "on-primary": "#ffffff",
+
+                    "on-secondary-fixed": "#002113",
+
+                    "secondary-fixed-dim": "#9ed2b5",
+
+                    "on-tertiary-fixed": "#410005",
+
+                    "tertiary": "#a43a3a",
+
+                    "error": "#ba1a1a",
+
+                    "surface-variant": "#e1e2e4",
+
+                    "inverse-primary": "#4edea3",
+
+                    "tertiary-fixed": "#ffdad7",
+
+                    "on-background": "#191c1e",
+
+                    "surface-container-lowest": "#ffffff",
+
+                    "surface-container-low": "#f2f4f6",
+
+                    "on-primary-fixed-variant": "#005236",
+
+                    "on-tertiary-fixed-variant": "#842225",
+
+                    "tertiary-fixed-dim": "#ffb3af",
+
+                    "secondary": "#376850",
+
+                    "on-secondary": "#ffffff",
+
+                    "on-surface": "#191c1e",
+
+                    "primary-fixed-dim": "#4edea3",
+
+                    "on-secondary-fixed-variant": "#1e4f3a",
+
+                    "on-surface-variant": "#3c4a42",
+
+                    "tertiary-container": "#fc7c78",
+
+                    "on-error-container": "#93000a",
+
+                    "inverse-surface": "#2e3132"
+
+            },
+
+            "borderRadius": {
+
+                    "DEFAULT": "1rem",
+
+                    "lg": "2rem",
+
+                    "xl": "3rem",
+
+                    "full": "9999px"
+
+            },
+
+            "fontFamily": {
+
+                    "headline": ["Lexend"],
+
+                    "body": ["Plus Jakarta Sans"],
+
+                    "label": ["Plus Jakarta Sans"]
+
+            }
+
+          },
+
+        },
+
+      }
+
+    </script>
+
+<style>
+
+        body { font-family: 'Plus Jakarta Sans', sans-serif; -webkit-tap-highlight-color: transparent; }
+
+        .headline-md { font-family: 'Lexend', sans-serif; font-size: 1.5rem; line-height: 2rem; font-weight: 600; }
+
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+
+        .active-pill { background: #10B981; color: white; border-radius: 9999px; }
+
+        .glass-effect { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+
+    </style>
+
+<style>
+
+    body {
+
+      min-height: max(884px, 100dvh);
+
+    }
+
+  </style>
+
+  </head>
+
+<body class="bg-surface text-on-surface">
+
+<!-- Mobile Wrapper: Max 480px Centered -->
+
+<div class="max-w-[480px] mx-auto min-h-screen relative pb-32">
+
+<!-- TopAppBar (Shared) -->
+
+<header class="fixed top-0 w-full max-w-[480px] z-50 bg-[#f8f9fb]/80 dark:bg-gray-950/80 backdrop-blur-xl flex justify-between items-center px-6 py-4">
+
+<div class="flex items-center gap-3">
+
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+
+<img class="w-full h-full object-cover" data-alt="Close-up portrait of a friendly middle-aged Asian woman smiling warmly, soft natural lighting, professional photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqzpvZ8JuC2TmMYv-zfbA4xqsLP7rYaz1OOM2ETDXsj6S2FiaKhtLqzVhyHw4sxWgC3JFNS08kyYKjBWQE8BKWQd6WsUGxKLSPw1EQq5Lnw-hzR7pMMCh3wIr_9gNVcToAoKNBnX-wURNjn5ZxsRApYluxA6uPWzasjkYFTeU0SniB9u-cGGyQdZnb_XRxQ1TW-kW0aUSCygBM0ocO8mPX-xnmjh6KzS8C3yqZwJ1MthLVB-LlI_S_hMFy6ehu7xQ_RG-o1KjyWw"/>
+
+</div>
+
+<div class="flex flex-col">
+
+<span class="text-xs text-outline font-medium">昵称：</span>
+
+<span class="font-headline font-bold text-on-surface leading-tight">小店长老板娘</span>
+
+</div>
+
+</div>
+
+<!-- Capsule Toggle -->
+
+<div class="bg-surface-container-high rounded-full p-1 flex items-center gap-1 shadow-inner">
+
+<button class="px-4 py-1.5 text-sm font-bold active-pill transition-all">极简</button>
+
+<button class="px-4 py-1.5 text-sm font-medium text-outline transition-all">专业</button>
+
+</div>
+
+</header>
+
+<!-- Main Canvas -->
+
+<main class="pt-24 px-6 space-y-8">
+
+<!-- Activity Banner -->
+
+<section class="relative aspect-[16/9] w-full rounded-lg overflow-hidden group">
+
+<img class="w-full h-full object-cover" data-alt="Digital tablet showing vibrant AI creative dashboard, glowing neon green accents, 3D clay style illustrations, bright and inviting atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDphenL35dD17QwrMNQ9LrRu543IxaRpJ0FofvUtPPuboqJ5xK2qrgpSyxWsIVNRgXLGlVbFzPtLUQbSR2r1NKCa08zsJGYynlFjJ1pTrzah6Grr49O5_Ipe3ONt6EsL76PJAQ9OWqd_7_moecfNQKHeCT6zxY0hn5aPLUx2AuYZT1zsOU6nRVphDOZvNX4M9pMMMuuEEfPQLTRrMVw6SxgqZgAGPdqkomHPNZ6Nz0YI9PIV0D2WXo5PaHykNR0lHoGWZzdKmP6EQ"/>
+
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+
+<h2 class="font-headline text-white text-xl font-bold tracking-wide">1分钟玩转小店长教程</h2>
+
+</div>
+
+</section>
+
+<!-- Core Action Area -->
+
+<section class="flex justify-center py-4">
+
+<button class="w-[85%] bg-surface-container-lowest py-5 rounded-full flex items-center justify-center gap-3 shadow-[0_12px_32px_rgba(25,28,30,0.06)] active:scale-95 transition-transform border-4 border-primary/5">
+
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">photo_camera</span>
+
+<span class="text-primary font-headline text-xl font-extrabold tracking-widest">开始制作</span>
+
+</button>
+
+</section>
+
+<!-- Inspiration Section Title -->
+
+<div class="flex justify-between items-end px-1">
+
+<h3 class="font-headline text-2xl font-bold text-on-surface">灵感橱窗</h3>
+
+<span class="text-sm text-primary font-medium">查看更多</span>
+
+</div>
+
+<!-- Inspiration Waterfall (Bento/Grid) -->
+
+<div class="grid grid-cols-2 gap-4">
+
+<!-- Card 1: 街头烧烤 -->
+
+<div class="bg-surface-container-lowest rounded-lg overflow-hidden shadow-sm flex flex-col group">
+
+<div class="relative aspect-[9/16] w-full overflow-hidden">
+
+<img class="w-full h-full object-cover" data-alt="Delicious street style BBQ skewers with sizzling smoke, warm amber lighting, rustic outdoor market setting, mouth-watering detail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkPOuBi1YlfICT0sQk6mY0r2eVdV1tZtGGVVZlFJWoHrNn_5lDOKkc2d1Dok353aiE_BuWjlpouZKfDWveUlQd1c1u985l-nK1G5OBkazDigyIs_rsTKXJAJzryIZprEM5AkIm4CD1YUk6o49seg-FQZ2QGSqxuvfsXNAmpmTwolZSTtgnDPVZwte77AcOg7Gp3U6JEUTDtIHTzhgPUpbSj-rq1IKl0UqxqKauhtIVGPF6IXjY3NktOlMw_XyCWJ4OksKBjoPGIA"/>
+
+<div class="absolute top-3 left-3 bg-white/70 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-on-surface">街头烧烤</div>
+
+</div>
+
+<div class="p-3">
+
+<button class="w-full bg-primary/5 hover:bg-primary/10 text-primary py-2.5 rounded-full flex items-center justify-center gap-1 transition-all">
+
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+
+<span class="text-sm font-bold">一键做同款</span>
+
+</button>
+
+</div>
+
+</div>
+
+<!-- Card 2: 咖啡馆 -->
+
+<div class="bg-surface-container-lowest rounded-lg overflow-hidden shadow-sm flex flex-col mt-6 group">
+
+<div class="relative aspect-[9/16] w-full overflow-hidden">
+
+<img class="w-full h-full object-cover" data-alt="Minimalist aesthetic cafe interior, warm morning sunlight streaming through windows, latte art on a wooden table, cozy high-end atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBI7RoE5Nt-k8-TlZ7bKwp2Zn5Nf_prfeAngDLPZykStjHiCpurb0J-rjM_M4pnjP34MwEKZv9eu4W6gqOrDCbUHvnkbxj0Agsr5Rd7X510fapjV2-v61OxvNhMTKo3vc9ss2jKoz79IqsU6X38tkRPnnxQBssbJcC3HG27UOVB-F0tCsQPDRsCBzvGFu-BnMfNdyH7TLzGO8WLt7TogWXJesH4AUicp6QjqpSe7hrfqNNtfkr9UN8YaE-BRVgAheEKlF39mvNlpA"/>
+
+<div class="absolute top-3 left-3 bg-white/70 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-on-surface">咖啡馆</div>
+
+</div>
+
+<div class="p-3">
+
+<button class="w-full bg-primary/5 hover:bg-primary/10 text-primary py-2.5 rounded-full flex items-center justify-center gap-1 transition-all">
+
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+
+<span class="text-sm font-bold">一键做同款</span>
+
+</button>
+
+</div>
+
+</div>
+
+<!-- Card 3: 怀旧糖水铺 -->
+
+<div class="bg-surface-container-lowest rounded-lg overflow-hidden shadow-sm flex flex-col -mt-6 group">
+
+<div class="relative aspect-[9/16] w-full overflow-hidden">
+
+<img class="w-full h-full object-cover" data-alt="Traditional Cantonese dessert bowl with mango and pomelo, vibrant colors, retro tile background, high contrast lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOs-X-RPZrSTh3ecRdXl9LNIaqG7jkuY6FjhjZFb4cOYMid9KkTLaa36deTw-UClfbFmF6AYHJXaCpmaZbCSHvUph5cpNzrXYk_z17lSLEGcoNVmPKq4MWnMWnKqgp5iW59sXz3mQFawVosctELOAYAInO0B8ZxYus4kffAsWffNxu2MEvVCz20mRry_VtIqAxjihZAIZK-J7EdDq-ecN8AlkBlFUW6TEKbrqeavz8VDmDS3Fgq-tK203D590IAUhXjHwj_Hc67g"/>
+
+<div class="absolute top-3 left-3 bg-white/70 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-on-surface">怀旧糖水铺</div>
+
+</div>
+
+<div class="p-3">
+
+<button class="w-full bg-primary/5 hover:bg-primary/10 text-primary py-2.5 rounded-full flex items-center justify-center gap-1 transition-all">
+
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+
+<span class="text-sm font-bold">一键做同款</span>
+
+</button>
+
+</div>
+
+</div>
+
+<!-- Card 4: 花店 -->
+
+<div class="bg-surface-container-lowest rounded-lg overflow-hidden shadow-sm flex flex-col group">
+
+<div class="relative aspect-[9/16] w-full overflow-hidden">
+
+<img class="w-full h-full object-cover" data-alt="Artistic flower shop corner with bouquets of peonies and eucalyptus, soft pastel colors, dreamy diffused lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9udqu7ehRu1YmIzryDIqu_6xQlwXXnZli0EK8N8wVAKDCwoN7eI9MXk_ZM_2bigWDM8uWHsISSEFRkhUCdQMFmaYgFRbqOJMo3Nki8lzEUzpGrc-b98UnrX9GLF0k7dt3jUWXiSt7fG3RKVU0e6GBs29QGAJlfPwyoi6LqfNetnu0F8XE4mF2c4zB9PQj1IxHaTjs4zuWEEv2b1lQ6vpeoa9Xjul0BgX93g70dklRS4hrgVyWaz1wJiB0BG5JGEaL2GacHDWlxw"/>
+
+<div class="absolute top-3 left-3 bg-white/70 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-on-surface">花店</div>
+
+</div>
+
+<div class="p-3">
+
+<button class="w-full bg-primary/5 hover:bg-primary/10 text-primary py-2.5 rounded-full flex items-center justify-center gap-1 transition-all">
+
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+
+<span class="text-sm font-bold">一键做同款</span>
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</main>
+
+<!-- BottomNavBar (Shared) -->
+
+<nav class="fixed bottom-0 left-0 right-0 mx-auto w-full max-w-[480px] bg-white/80 backdrop-blur-xl rounded-t-xl z-50 shadow-[0_-12px_32px_rgba(25,28,30,0.06)] flex justify-around items-center pb-8 pt-4 px-8">
+
+<!-- Home (Active) -->
+
+<a class="flex flex-col items-center justify-center bg-[#10B981]/10 text-[#10B981] rounded-2xl px-8 py-2 active:scale-95 transition-all" href="#">
+
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">home</span>
+
+<span class="font-lexend text-xs font-bold">首页</span>
+
+</a>
+
+<!-- Me -->
+
+<a class="flex flex-col items-center justify-center text-[#6c7a71] px-8 py-2 hover:opacity-80 active:scale-95 transition-all" href="#">
+
+<span class="material-symbols-outlined mb-1">person</span>
+
+<span class="font-lexend text-xs font-medium">我的</span>
+
+</a>
+
+</nav>
+
+</div>
+
+</body></html>

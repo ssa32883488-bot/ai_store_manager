@@ -1,0 +1,102 @@
+<!-- 首页 -->
+<view class="container">
+  <!-- 顶部用户信息栏 -->
+  <view class="user-header">
+    <view class="user-info" bindtap="onTapProfile">
+      <image class="avatar" src="{{userInfo.avatarUrl || defaultAvatarUrl}}" mode="aspectFill"/>
+      <view class="user-text">
+        <text class="nickname">{{userInfo.nickname || '小店长老板娘'}}</text>
+        <text class="credit-text">剩余创作点数：{{remainingCredits}}</text>
+      </view>
+    </view>
+    <!-- 胶囊切换 -->
+    <view class="mode-toggle">
+      <view class="toggle-item {{currentMode === 'simple' ? 'active' : ''}}" bindtap="switchMode" data-mode="simple">极简</view>
+      <view class="toggle-item {{currentMode === 'pro' ? 'active' : ''}}" bindtap="switchMode" data-mode="pro">专业</view>
+    </view>
+  </view>
+
+  <!-- 主内容区 -->
+  <scroll-view class="main-content" scroll-y>
+    <!-- 活动横幅（轮播图来自 images/banners/home-banner-*.png） -->
+    <view class="banner-section">
+      <swiper
+        class="banner-swiper"
+        bindtap="onTapBanner"
+        indicator-dots="{{bannerList.length > 1}}"
+        indicator-color="rgba(255,255,255,0.4)"
+        indicator-active-color="#10b981"
+        autoplay="{{bannerList.length > 1}}"
+        circular="{{bannerList.length > 1}}"
+        interval="4000"
+        duration="500"
+      >
+        <swiper-item wx:for="{{bannerList}}" wx:key="*this">
+          <image class="banner-image" src="{{item}}" mode="aspectFill" />
+        </swiper-item>
+      </swiper>
+    </view>
+
+    <!-- 核心操作区 -->
+    <view class="action-section">
+      <!-- icon 使用 Vant 内置 photograph，与文案同一套 flex 对齐，避免 emoji 基线问题 -->
+      <van-button
+        block
+        type="primary"
+        size="large"
+        round
+        icon="photograph"
+        color="linear-gradient(135deg, #0d9488, #5eead4)"
+        custom-class="start-btn"
+        bind:click="onTapStartCreate"
+      >
+        开始制作
+      </van-button>
+    </view>
+
+    <!-- 灵感橱窗 -->
+    <view class="inspiration-header">
+      <text class="section-title">灵感橱窗</text>
+      <view class="view-more" bindtap="onViewMore">
+        <text>查看更多</text>
+        <text class="arrow">›</text>
+      </view>
+    </view>
+
+    <!-- 瀑布流网格 -->
+    <view class="waterfall-grid">
+      <view class="grid-left">
+        <block wx:for="{{inspirationListLeft}}" wx:key="id">
+          <view class="inspiration-card" bindtap="onTapCard" data-id="{{item.id}}">
+            <view class="card-image-wrapper">
+              <image class="card-image" src="{{item.imageUrl}}" mode="aspectFill"/>
+              <view class="card-tag">{{item.tag}}</view>
+            </view>
+            <view class="card-action">
+              <view class="action-btn" catchtap="onTapCreateSame" data-id="{{item.id}}">
+                <text class="star-icon">✨</text>
+                <text class="action-text">做同款</text>
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+      <view class="grid-right">
+        <block wx:for="{{inspirationListRight}}" wx:key="id">
+          <view class="inspiration-card {{index === 0 ? 'card-offset' : ''}}" bindtap="onTapCard" data-id="{{item.id}}">
+            <view class="card-image-wrapper">
+              <image class="card-image" src="{{item.imageUrl}}" mode="aspectFill"/>
+              <view class="card-tag">{{item.tag}}</view>
+            </view>
+            <view class="card-action">
+              <view class="action-btn" catchtap="onTapCreateSame" data-id="{{item.id}}">
+                <text class="star-icon">✨</text>
+                <text class="action-text">做同款</text>
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </scroll-view>
+</view>
